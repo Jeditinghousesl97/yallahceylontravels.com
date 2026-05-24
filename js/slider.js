@@ -1,0 +1,116 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  const slides  = document.querySelectorAll('.hero-slide');
+  const dots    = document.querySelectorAll('.slider-dot');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+
+  // No slider on this page — exit silently
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer;
+  const INTERVAL = 3500; // 3.5s — professional feel, not too fast/slow
+
+  const titleEl    = document.getElementById('heroTitle');
+  const subtitleEl = document.getElementById('heroSubtitle');
+  const ctasEl     = document.getElementById('heroCtas');
+
+  function syncVideoPlayback() {
+    slides.forEach((slide, index) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      if (index === current) {
+        const playPromise = video.play();
+        if (playPromise?.catch) playPromise.catch(() => {});
+      } else {
+        video.pause();
+        try { video.currentTime = 0; } catch (err) {}
+      }
+    });
+  }
+
+  /* Update hero text content from slide data attributes */
+  function updateContent(slide) {
+    const title    = slide.dataset.title    || '';
+    const subtitle = slide.dataset.subtitle || '';
+    const btn1Text = slide.dataset.btn1Text || '';
+    const btn1Url  = slide.dataset.btn1Url  || '';
+    const btn2Text = slide.dataset.btn2Text || '';
+    const btn2Url  = slide.dataset.btn2Url  || '';
+
+    if (titleEl    && title)    titleEl.innerHTML    = title.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    if (subtitleEl && subtitle) subtitleEl.textContent = subtitle;
+
+    if (ctasEl && (btn1Text || btn2Text)) {
+      ctasEl.innerHTML = '';
+      if (btn1Text && btn1Url) {
+        ctasEl.innerHTML += `<a href="${btn1Url}" class="btn-primary"><i class="fas fa-map-marked-alt"></i> ${btn1Text}</a>`;
+      }
+      if (btn2Text && btn2Url) {
+        ctasEl.innerHTML += `<a href="${btn2Url}" class="btn-outline"><i class="fas fa-phone-alt"></i> ${btn2Text}</a>`;
+      }
+    }
+  }
+
+  /* Go to specific slide */
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
+
+    current = (n + slides.length) % slides.length;
+
+    slides[current].classList.add('active');
+    dots[current]?.classList.add('active');
+    updateContent(slides[current]);
+    syncVideoPlayback();
+  }
+
+  /* Auto-play */
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
+  }
+
+  /* Init */
+  goTo(0);
+  startTimer();
+
+  /* Arrow buttons */
+  nextBtn?.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+  prevBtn?.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+
+  /* Dot buttons */
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); startTimer(); });
+  });
+
+  /* Touch / swipe support */
+  let touchStartX = 0;
+  const heroEl = document.querySelector('.hero');
+
+  heroEl?.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  heroEl?.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      startTimer();
+    }
+  });
+
+  /* Keyboard support */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { goTo(current + 1); startTimer(); }
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); startTimer(); }
+  });
+
+  /* Pause on hover */
+  const heroSection = document.querySelector('.hero');
+  heroSection?.addEventListener('mouseenter', () => clearInterval(timer));
+  heroSection?.addEventListener('mouseleave', startTimer);
+
+});
