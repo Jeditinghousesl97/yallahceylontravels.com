@@ -573,6 +573,9 @@
   position: relative;
   text-align: center;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .custom-tour::before {
   content: ''; position: absolute; inset: 0;
@@ -717,7 +720,7 @@
 
 /* SCENIC PARALLAX BANNER */
 .scenic-banner {
-  height: 420px;
+  height: 100vh;
   background: url('../images/scenic-banner.jpg') center / cover no-repeat fixed;
   position: relative;
   display: flex; align-items: center; justify-content: center;
