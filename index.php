@@ -66,8 +66,8 @@ if ($conn) {
     if ($r) $homeDestinations = $r->fetch_all(MYSQLI_ASSOC);
 }
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
-$pageDesc  = setting('meta_description', 'Good Shepherd Tours & Travels | Your trusted partner for luxury Sri Lanka tours, airport transfers, hotel bookings and custom travel experiences across the island.');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
+$pageDesc  = setting('meta_description', 'Yallah Ceylon Travels | Your trusted partner for luxury Sri Lanka tours, airport transfers, hotel bookings and custom travel experiences across the island.');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 
 /* ── ABOUT SETTINGS ── */
@@ -77,7 +77,7 @@ $aImg3       = setting('about_img3', '');
 $hImg1       = setting('home_img1', '');
 $hImg2       = setting('home_img2', '');
 $hImg3       = setting('home_img3', '');
-$homeAboutH  = setting('home_about_heading', 'Welcome to Good Shepherd Tours & Travels');
+$homeAboutH  = setting('home_about_heading', 'Welcome to Yallah Ceylon Travels');
 $homeAboutD  = setting('home_about_desc', 'We are dedicated to crafting exceptional Sri Lanka travel experiences. From the misty highlands of Nuwara Eliya to the golden shores of Mirissa, every journey we create is a masterpiece tailored just for you. Our team of passionate local experts ensures every detail is perfect — from the moment you land to your fond farewell.');
 $stat1Count  = setting('about_stat1_count',  '500');
 $stat1Suffix = setting('about_stat1_suffix', '+');
@@ -171,7 +171,7 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
         echo 'Create <em>Unforgettable</em><br>Travel Memories';
       }
     ?></h1>
-    <p class="hero-subtitle" id="heroSubtitle"><?= $heroSubtitle ? e($heroSubtitle) : 'Discover the pearl of the Indian Ocean with Good Shepherd Tours & Travels — your trusted partner for luxury tours, authentic experiences, and lifetime memories across beautiful Sri Lanka.' ?></p>
+    <p class="hero-subtitle" id="heroSubtitle"><?= $heroSubtitle ? e($heroSubtitle) : 'Discover the pearl of the Indian Ocean with Yallah Ceylon Travels — your trusted partner for luxury tours, authentic experiences, and lifetime memories across beautiful Sri Lanka.' ?></p>
     <div class="hero-ctas" id="heroCtas">
       <?php if ($heroBtn1Text && $heroBtn1Url): ?>
         <a href="<?= e($heroBtn1Url) ?>" class="btn-primary"><i class="fas fa-map-marked-alt"></i> <?= e($heroBtn1Text) ?></a>
@@ -201,7 +201,7 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
     <div class="welcome-grid">
       <div class="welcome-images reveal-left">
         <div class="welcome-img welcome-img-main">
-          <img src="<?= $hImg1 ? e(imgUrl($hImg1)) : 'images/about-main.jpg' ?>" alt="Explore Sri Lanka with Good Shepherd Tours & Travels"/>
+          <img src="<?= $hImg1 ? e(imgUrl($hImg1)) : 'images/about-main.jpg' ?>" alt="Explore Sri Lanka with Yallah Ceylon Travels"/>
         </div>
         <div class="welcome-img welcome-img-2">
           <img src="<?= $hImg2 ? e(imgUrl($hImg2)) : 'images/about-2.jpg' ?>" alt="Sri Lanka Beaches"/>
@@ -217,7 +217,7 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
 
       </div>
       <div class="welcome-content reveal-right">
-        <div class="section-tag">About Good Shepherd Tours & Travels</div>
+        <div class="section-tag">About Yallah Ceylon Travels</div>
         <h2 class="section-title"><?= e($homeAboutH) ?></h2>
         <p class="welcome-desc"><?= e($homeAboutD) ?></p>
         <div class="welcome-features">
@@ -313,7 +313,7 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
     <div class="section-header">
       <div class="section-tag reveal">Our Promise</div>
       <h2 class="section-title reveal">Why Choose <em>Us?</em></h2>
-      <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6)">Six reasons why thousands of travelers trust Good Shepherd Tours & Travels for extraordinary experiences.</p>
+      <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6)">Six reasons why thousands of travelers trust Yallah Ceylon Travels for extraordinary experiences.</p>
     </div>
     <div class="why-grid stagger-children">
       <?php if ($whyItems): ?>
@@ -603,8 +603,8 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
           <?php endforeach; ?>
         <?php else: ?>
           <!-- Static fallback testimonials -->
-          <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Absolutely breathtaking trip! Our driver-guide was incredibly knowledgeable and made every moment special. Good Shepherd Tours & Travels exceeded all our expectations from start to finish."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Sarah Mitchell</div><div class="testimonial-country"><i class="fas fa-flag"></i> United Kingdom</div></div></div></div>
-          <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"The 10-day island tour was perfectly planned. Every hotel, every attraction, every meal — flawless. I cannot recommend Good Shepherd Tours & Travels enough to anyone visiting Sri Lanka."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Thomas Berger</div><div class="testimonial-country"><i class="fas fa-flag"></i> Germany</div></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Absolutely breathtaking trip! Our driver-guide was incredibly knowledgeable and made every moment special. Yallah Ceylon Travels exceeded all our expectations from start to finish."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Sarah Mitchell</div><div class="testimonial-country"><i class="fas fa-flag"></i> United Kingdom</div></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"The 10-day island tour was perfectly planned. Every hotel, every attraction, every meal — flawless. I cannot recommend Yallah Ceylon Travels enough to anyone visiting Sri Lanka."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Thomas Berger</div><div class="testimonial-country"><i class="fas fa-flag"></i> Germany</div></div></div></div>
           <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Our family of five had the most magical experience! The kids loved the elephant orphanage and whale watching. Everything was safe, professional and wonderful."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Priya Nakamura</div><div class="testimonial-country"><i class="fas fa-flag"></i> Japan</div></div></div></div>
           <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Booking was easy and the team was always responsive. Our customized honeymoon tour was perfect — romantic, adventurous, and absolutely unforgettable."</p><div class="testimonial-author"><div class="testimonial-icon-avatar"><i class="fas fa-user"></i></div><div><div class="testimonial-name">Emma &amp; James Cole</div><div class="testimonial-country"><i class="fas fa-flag"></i> Australia</div></div></div></div>
         <?php endif; ?>

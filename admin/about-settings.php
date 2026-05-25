@@ -18,7 +18,7 @@ foreach ($s as $k => $v) {
         $legacyEmail  = 'info@' . $legacyDomain;
         $s[$k] = str_replace(
             [$legacyName, $legacyDomain, $legacyEmail],
-            ['Good Shepherd Tours & Travels', 'goodsheperdtours.com', 'info@goodsheperdtours.com'],
+            ['Yallah Ceylon Travels', 'yallahceylontravels.com', 'info@yallahceylontravels.com'],
             $v
         );
     }
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About Page Settings | Good Shepherd Tours & Travels Admin</title>
+<title>About Page Settings | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -291,7 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="fgrp">
               <label>Paragraph 1</label>
               <textarea name="about_story_para1" class="form-control" rows="4"
-                        placeholder="First paragraph…"><?= sv($s,'about_story_para1','Good Shepherd Tours & Travels was born from a deep love for this beautiful island and a desire to share its wonders with the world. Founded in 2014, we began as a small, passionate team of local travel enthusiasts committed to one simple goal — giving every traveler a genuine, unforgettable Sri Lanka experience.') ?></textarea>
+                        placeholder="First paragraph…"><?= sv($s,'about_story_para1','Yallah Ceylon Travels was born from a deep love for this beautiful island and a desire to share its wonders with the world. Founded in 2014, we began as a small, passionate team of local travel enthusiasts committed to one simple goal — giving every traveler a genuine, unforgettable Sri Lanka experience.') ?></textarea>
             </div>
 
             <div class="fgrp">
@@ -488,8 +488,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="fgrp">
               <label>Section Heading</label>
               <input type="text" name="home_about_heading" class="form-control"
-                     value="<?= sv($s,'home_about_heading','Welcome to Good Shepherd Tours & Travels') ?>"
-                     placeholder="Welcome to Good Shepherd Tours & Travels"/>
+                     value="<?= sv($s,'home_about_heading','Welcome to Yallah Ceylon Travels') ?>"
+                     placeholder="Welcome to Yallah Ceylon Travels"/>
             </div>
 
             <div class="fgrp">

@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Colors | Good Shepherd Tours & Travels Admin</title>
+<title>Colors | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                   </div>
                   <div class="preview-hero">
-                    <div class="preview-kicker">Good Shepherd Tours & Travels</div>
+                    <div class="preview-kicker">Yallah Ceylon Travels</div>
                     <h3>Luxury journeys with calm tropical elegance</h3>
                     <p>See how your hero section, CTA buttons, and supporting content will feel with the selected palette.</p>
                     <div class="preview-actions">

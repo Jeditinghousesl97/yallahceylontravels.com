@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['booking_submit'])) {
     }
 }
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 $turnstileSiteKey = trim((string)setting('turnstile_site', setting('turnstile_site_key', '')));
 

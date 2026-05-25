@@ -1,8 +1,8 @@
 <?php
-$_siteTitle = setting('site_name',    'Good Shepherd Tours & Travels');
+$_siteTitle = setting('site_name',    'Yallah Ceylon Travels');
 $_tagline   = setting('site_tagline', "Sri Lanka's Premier Tour Operator");
 $_phone     = setting('site_phone',   '+94 77 577 5211');
-$_email     = setting('site_email',   'info@goodsheperdtours.com');
+$_email     = setting('site_email',   'info@yallahceylontravels.com');
 $_whatsapp  = setting('site_whatsapp','94775775211');
 $_siteLogo  = setting('site_logo');
 $_fbUrl     = setting('facebook_url',    '');

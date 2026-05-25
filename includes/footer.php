@@ -1,6 +1,6 @@
 <?php
 $_phone       = setting('site_phone',    '+94 77 577 5211');
-$_email       = setting('site_email',    'info@goodsheperdtours.com');
+$_email       = setting('site_email',    'info@yallahceylontravels.com');
 $_whatsapp    = setting('site_whatsapp', '94775775211');
 $_address     = setting('site_address',  '289/1 Madampagama, Kuleegoda, Ambalangoda, Sri Lanka');
 $_hours       = setting('business_hours','Mon – Sun: 8:00 AM – 8:00 PM');
@@ -12,7 +12,7 @@ $_tkUrl       = setting('tiktok_url',     '');
 $_twUrl       = setting('twitter_url',    '');
 $_footerLogo  = setting('footer_logo');
 $_footerAbout = setting('footer_about',  'Your trusted travel companion for unforgettable Sri Lanka experiences. Licensed, reliable and passionate about sharing the beauty of our island with the world.');
-$_copyright   = setting('footer_copyright', '&copy; ' . date('Y') . ' Good Shepherd Tours & Travels. All rights reserved.');
+$_copyright   = setting('footer_copyright', '&copy; ' . date('Y') . ' Yallah Ceylon Travels. All rights reserved.');
 $_showBlog    = hasPublishedBlogPosts();
 ?>
 <footer class="footer">
@@ -23,14 +23,14 @@ $_showBlog    = hasPublishedBlogPosts();
         <div class="footer-brand">
           <a href="index.php">
             <?php if ($_footerLogo): ?>
-              <img src="<?= imgUrl($_footerLogo) ?>" alt="Good Shepherd Tours & Travels" class="footer-logo-img"/>
+              <img src="<?= imgUrl($_footerLogo) ?>" alt="Yallah Ceylon Travels" class="footer-logo-img"/>
             <?php else: ?>
-              <img src="images/footer-logo.png" alt="Good Shepherd Tours & Travels" class="footer-logo-img"
+              <img src="images/footer-logo.png" alt="Yallah Ceylon Travels" class="footer-logo-img"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="footer-logo-fallback" style="display:none">
                 <div class="logo-icon"><i class="fas fa-compass"></i></div>
                 <div>
-                  <div class="logo-text" style="color:var(--white)">Good Shepherd Tours & Travels</div>
+                  <div class="logo-text" style="color:var(--white)">Yallah Ceylon Travels</div>
                   <div class="logo-sub"  style="color:rgba(255,255,255,0.4)">Sri Lanka's Premier Tour Operator</div>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 <?php
 /**
  * sitemap.xml.php — Dynamic XML Sitemap for Google Search Console
- * Access via: goodsheperdtours.com/sitemap.xml (via .htaccess rewrite)
- * Or directly: goodsheperdtours.com/sitemap.xml.php
+ * Access via: yallahceylontravels.com/sitemap.xml (via .htaccess rewrite)
+ * Or directly: yallahceylontravels.com/sitemap.xml.php
  */
 require_once 'includes/config.php';
 

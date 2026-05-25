@@ -82,7 +82,7 @@ function formatBytes($bytes) {
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Purge Cache | Good Shepherd Tours & Travels Admin</title>
+<title>Purge Cache | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>

@@ -1,8 +1,8 @@
 <?php
 require_once 'includes/config.php';
 $currentPage = 'privacy';
-$siteTitle   = setting('site_name', 'Good Shepherd Tours & Travels');
-$siteEmail   = setting('site_email', 'info@goodsheperdtours.com');
+$siteTitle   = setting('site_name', 'Yallah Ceylon Travels');
+$siteEmail   = setting('site_email', 'info@yallahceylontravels.com');
 $siteAddress = setting('site_address', '289/1 Madampagama, Kuleegoda, Ambalangoda, Sri Lanka');
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $siteAddress = setting('site_address', '289/1 Madampagama, Kuleegoda, Ambalangod
   <title>Privacy Policy | <?= e($siteTitle) ?></title>
   <meta name="description" content="Privacy Policy for <?= e($siteTitle) ?>. Learn how we collect, use and protect your personal information."/>
   <meta property="og:title"       content="Privacy Policy | <?= e($siteTitle) ?>"/>
-  <meta property="og:description" content="Learn how Good Shepherd Tours & Travels collects, uses and protects your personal information."/>
+  <meta property="og:description" content="Learn how Yallah Ceylon Travels collects, uses and protects your personal information."/>
   <meta property="og:type"        content="website"/>
   <meta property="og:image"       content="<?= e(seoImageUrl()) ?>"/>
   <link rel="icon"       type="image/png"  href="<?= e(faviconUrl()) ?>"/>

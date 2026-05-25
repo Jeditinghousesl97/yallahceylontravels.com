@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/config.php';
 $currentPage = 'sitemap';
-$siteTitle   = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle   = setting('site_name', 'Yallah Ceylon Travels');
 
 /* Fetch tours */
 $tours = [];
@@ -34,7 +34,7 @@ if ($conn) {
   <meta property="og:type"        content="website"/>
   <meta property="og:site_name"   content="<?= e($siteTitle) ?>"/>
   <meta property="og:title"       content="Sitemap | <?= e($siteTitle) ?>"/>
-  <meta property="og:description" content="Find all pages, tour packages, destinations and blog posts on the Good Shepherd Tours & Travels website."/>
+  <meta property="og:description" content="Find all pages, tour packages, destinations and blog posts on the Yallah Ceylon Travels website."/>
   <meta property="og:image"       content="<?= e(seoImageUrl('images/scenic-banner.jpg')) ?>"/>
   <meta property="og:url"         content="<?= SITE_URL ?>/sitemap.php"/>
   <link rel="icon"       type="image/png"  href="<?= e(faviconUrl()) ?>"/>

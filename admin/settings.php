@@ -19,7 +19,7 @@ foreach ($s as $k => $v) {
         $legacyEmail  = 'info@' . $legacyDomain;
         $s[$k] = str_replace(
             [$legacyName, $legacyDomain, $legacyEmail],
-            ['Good Shepherd Tours & Travels', 'goodsheperdtours.com', 'info@goodsheperdtours.com'],
+            ['Yallah Ceylon Travels', 'yallahceylontravels.com', 'info@yallahceylontravels.com'],
             $v
         );
     }
@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Settings | Good Shepherd Tours & Travels Admin</title>
+<title>Settings | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -293,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="fgrp">
                 <label>Site Title</label>
                 <input type="text" name="site_name" class="form-control"
-                       value="<?= sv($s,'site_name') ?>" placeholder="Good Shepherd Tours & Travels"/>
+                       value="<?= sv($s,'site_name') ?>" placeholder="Yallah Ceylon Travels"/>
               </div>
               <div class="fgrp">
                 <label>Tagline</label>
@@ -371,7 +371,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label>Footer Copyright Text</label>
               <input type="text" name="footer_text" class="form-control"
                      value="<?= sv($s,'footer_copyright') ?>"
-                     placeholder="&copy; 2025 Good Shepherd Tours & Travels. All rights reserved."/>
+                     placeholder="&copy; 2025 Yallah Ceylon Travels. All rights reserved."/>
               <span class="hint">You can use HTML entities like &amp;copy; for standard symbols.</span>
             </div>
           </div>
@@ -446,14 +446,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label>Default Meta Title</label>
               <input type="text" name="meta_title" id="metaTitle" class="form-control"
                      value="<?= sv($s,'meta_title') ?>"
-                     placeholder="Good Shepherd Tours & Travels | Sri Lanka Tour Operator"
+                     placeholder="Yallah Ceylon Travels | Sri Lanka Tour Operator"
                      oninput="countChars(this,'metaTitleCount',60)"/>
               <div id="metaTitleCount" class="hint"></div>
             </div>
             <div class="fgrp">
               <label>Meta Description <span class="hint">150–160 characters recommended</span></label>
               <textarea name="meta_description" id="metaDesc" class="form-control" rows="3"
-                        placeholder="Good Shepherd Tours & Travels — your trusted inbound tour operator…"
+                        placeholder="Yallah Ceylon Travels — your trusted inbound tour operator…"
                         oninput="countChars(this,'metaDescCount',160)"><?= sv($s,'meta_description') ?></textarea>
               <div id="metaDescCount" class="hint"></div>
             </div>
@@ -489,7 +489,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="fgrp">
                 <label>Email Address</label>
                 <input type="email" name="site_email" class="form-control"
-                       value="<?= sv($s,'site_email') ?>" placeholder="info@goodsheperdtours.com"/>
+                       value="<?= sv($s,'site_email') ?>" placeholder="info@yallahceylontravels.com"/>
               </div>
               <div class="fgrp">
                 <label>Phone Number</label>
@@ -612,15 +612,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="fgrp">
                 <label>Email Sender Name</label>
                 <input type="text" name="smtp_from_name" class="form-control"
-                       value="<?= sv($s,'smtp_from_name', sv($s,'site_name','Good Shepherd Tours & Travels')) ?>"
-                       placeholder="<?= sv($s,'site_name','Good Shepherd Tours & Travels') ?>"/>
+                       value="<?= sv($s,'smtp_from_name', sv($s,'site_name','Yallah Ceylon Travels')) ?>"
+                       placeholder="<?= sv($s,'site_name','Yallah Ceylon Travels') ?>"/>
                 <small class="text-muted" style="font-size:12px;margin-top:6px;display:block">This name appears in recipients' inboxes as the email sender.</small>
               </div>
               <div class="fgrp">
                 <label>From Email</label>
                 <input type="email" name="smtp_from_email" class="form-control"
                        value="<?= sv($s,'smtp_from_email') ?>"
-                       placeholder="noreply@goodsheperdtours.com"/>
+                       placeholder="noreply@yallahceylontravels.com"/>
               </div>
               <div class="fgrp">
                 <label>Encryption</label>

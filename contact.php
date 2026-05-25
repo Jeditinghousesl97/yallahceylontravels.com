@@ -4,7 +4,7 @@ require_once 'includes/mailer.php';
 $currentPage = 'contact';
 
 $phone    = setting('site_phone',    '+94 77 577 5211');
-$email    = setting('site_email',    'info@goodsheperdtours.com');
+$email    = setting('site_email',    'info@yallahceylontravels.com');
 $whatsapp = setting('site_whatsapp', '94775775211');
 $address  = setting('site_address',  '289/1 Madampagama, Kuleegoda, Ambalangoda, Sri Lanka');
 $hours    = setting('business_hours','Mon – Sun: 8:00 AM – 8:00 PM');
@@ -15,7 +15,7 @@ $ytUrl    = setting('youtube_url',    '');
 $tkUrl    = setting('tiktok_url',     '');
 $twUrl    = setting('twitter_url',    '');
 $taUrl    = setting('tripadvisor_url','');
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $turnstileSiteKey   = trim((string)setting('turnstile_site', setting('turnstile_site_key', '')));
 $turnstileSecretKey = trim((string)setting('turnstile_secret', setting('turnstile_secret_key', '')));
 
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
 
         $recipient = siteMailRecipient();
         if ($recipient !== '') {
-            $subject = 'New Contact Enquiry - ' . setting('site_name', 'Good Shepherd Tours & Travels');
+            $subject = 'New Contact Enquiry - ' . setting('site_name', 'Yallah Ceylon Travels');
             $htmlBody = '
                 <h2 style="margin:0 0 16px;">New Contact Enquiry</h2>
                 <table cellpadding="8" cellspacing="0" border="0" style="border-collapse:collapse;width:100%;max-width:700px;">
@@ -117,11 +117,11 @@ $success = isset($_GET['sent']);
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Contact Good Shepherd Tours & Travels | Get in touch to plan your perfect Sri Lanka tour."/>
+  <meta name="description" content="Contact Yallah Ceylon Travels | Get in touch to plan your perfect Sri Lanka tour."/>
   <meta property="og:type"        content="website"/>
   <meta property="og:site_name"   content="<?= e($siteTitle) ?>"/>
   <meta property="og:title"       content="Contact Us | <?= e($siteTitle) ?>"/>
-  <meta property="og:description" content="Get in touch with Good Shepherd Tours & Travels to start planning your perfect Sri Lanka tour experience."/>
+  <meta property="og:description" content="Get in touch with Yallah Ceylon Travels to start planning your perfect Sri Lanka tour experience."/>
   <meta property="og:image"       content="<?= e(seoImageUrl('images/contact-hero.jpg')) ?>"/>
   <meta property="og:url"         content="<?= SITE_URL ?>/contact.php"/>
   <title>Contact Us | <?= e($siteTitle) ?></title>
@@ -372,7 +372,7 @@ $success = isset($_GET['sent']);
     <?= $mapEmbed ?>
   <?php else: ?>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d80.0536!3d6.2368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173b0b348b44f%3A0x6c7fd8d8a3e9c7a9!2sAmbalangoda!5e0!3m2!1sen!2slk!4v1700000000000"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Good Shepherd Tours & Travels Location">
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Yallah Ceylon Travels Location">
     </iframe>
   <?php endif; ?>
 </div>
@@ -384,7 +384,7 @@ $success = isset($_GET['sent']);
     <div class="section-header">
       <div class="section-tag reveal">Our Promise</div>
       <h2 class="section-title reveal">Why Choose <em>Us?</em></h2>
-      <p class="section-subtitle reveal">Six reasons why hundreds of travelers trust Good Shepherd Tours & Travels for their Sri Lanka adventures.</p>
+      <p class="section-subtitle reveal">Six reasons why hundreds of travelers trust Yallah Ceylon Travels for their Sri Lanka adventures.</p>
     </div>
     <div class="contact-why-grid stagger-children">
       <?php if ($whyUs): foreach ($whyUs as $w): ?>

@@ -2,7 +2,7 @@
 require_once 'includes/config.php';
 $currentPage = 'blog';
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 
 $catIcons = [
@@ -166,7 +166,7 @@ $shareTw   = 'https://twitter.com/intent/tweet?text=' . $shareText . '&url=' . u
       <?php endif; ?>
       <h1 class="blog-detail-title"><?= e($p['title']) ?></h1>
       <div class="blog-detail-meta">
-        <span><i class="fas fa-user"></i> <?= e($p['author'] ?: 'Good Shepherd Tours & Travels') ?></span>
+        <span><i class="fas fa-user"></i> <?= e($p['author'] ?: 'Yallah Ceylon Travels') ?></span>
         <span><i class="fas fa-calendar-alt"></i> <?= fmtDateFull($p['published_at']) ?></span>
         <?php if ($p['read_time']): ?><span><i class="fas fa-clock"></i> <?= (int)$p['read_time'] ?> min read</span><?php endif; ?>
         <span><i class="fas fa-eye"></i> <?= number_format((int)$p['views'] + 1) ?> views</span>
@@ -229,7 +229,7 @@ $shareTw   = 'https://twitter.com/intent/tweet?text=' . $shareText . '&url=' . u
           <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-light));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;color:var(--gold-light);">
             <i class="fas fa-compass"></i>
           </div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--teal-dark);margin-bottom:6px;"><?= e($p['author'] ?: 'Good Shepherd Tours & Travels') ?></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--teal-dark);margin-bottom:6px;"><?= e($p['author'] ?: 'Yallah Ceylon Travels') ?></div>
           <div style="font-size:12px;color:var(--text-light);margin-bottom:12px;">Sri Lanka's Premier Tour Operator</div>
           <p style="font-size:13px;color:var(--text-light);line-height:1.65;">Our team of experienced local travel experts share their insider knowledge to help you discover the very best of Sri Lanka.</p>
         </div>
@@ -334,7 +334,7 @@ $shareTw   = 'https://twitter.com/intent/tweet?text=' . $shareText . '&url=' . u
           <div class="blog-card-footer">
             <div class="blog-card-author">
               <div class="blog-card-author-dot"><i class="fas fa-user"></i></div>
-              Good Shepherd Tours & Travels Team
+              Yallah Ceylon Travels Team
             </div>
             <span class="read-more-btn" style="font-size:12px;">Read <i class="fas fa-arrow-right"></i></span>
           </div>
@@ -356,7 +356,7 @@ $shareTw   = 'https://twitter.com/intent/tweet?text=' . $shareText . '&url=' . u
     <div class="blog-cta-inner reveal">
       <div class="section-tag">Ready to Visit?</div>
       <h2 class="section-title">Turn Inspiration into <em>Reality</em></h2>
-      <p>Let Good Shepherd Tours & Travels build your perfect Sri Lanka itinerary — all the places in this article and more, crafted just for you.</p>
+      <p>Let Yallah Ceylon Travels build your perfect Sri Lanka itinerary — all the places in this article and more, crafted just for you.</p>
       <div class="blog-cta-btns">
         <a href="tours.php"   class="btn-primary"><i class="fas fa-map-marked-alt"></i> Browse Tour Packages</a>
         <a href="contact.php#contact-form" class="btn-outline"><i class="fas fa-pencil-alt"></i> Plan My Custom Tour</a>

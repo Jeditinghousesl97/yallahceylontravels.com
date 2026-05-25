@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Login | Good Shepherd Tours & Travels</title>
+  <title>Admin Login | Yallah Ceylon Travels</title>
   <link rel="icon" type="image/png" href="../images/favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -184,11 +184,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="visual-inner">
       <div class="v-logo">
         <?php if ($siteLogo): ?>
-          <img src="../<?= htmlspecialchars($siteLogo) ?>" alt="Good Shepherd Tours & Travels" style="height:52px;max-width:180px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))"/>
+          <img src="../<?= htmlspecialchars($siteLogo) ?>" alt="Yallah Ceylon Travels" style="height:52px;max-width:180px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))"/>
         <?php else: ?>
           <div class="v-logo-icon"><i class="fas fa-compass"></i></div>
         <?php endif; ?>
-        <div><div class="v-brand">Good Shepherd Tours & Travels</div><div class="v-tagline">Admin Portal</div></div>
+        <div><div class="v-brand">Yallah Ceylon Travels</div><div class="v-tagline">Admin Portal</div></div>
       </div>
       <div class="v-text">
         <div class="v-tag"><i class="fas fa-shield-alt"></i> Secure Admin Access</div>
@@ -248,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <div class="form-footer">
-      <p>Good Shepherd Tours & Travels &copy; <?= date('Y') ?> &nbsp;·&nbsp; <a href="../index.php" target="_blank">View Website</a> &nbsp;·&nbsp; <a href="mailto:info@goodsheperdtours.com">Support</a></p>
+      <p>Yallah Ceylon Travels &copy; <?= date('Y') ?> &nbsp;·&nbsp; <a href="../index.php" target="_blank">View Website</a> &nbsp;·&nbsp; <a href="mailto:info@yallahceylontravels.com">Support</a></p>
     </div>
   </div>
 

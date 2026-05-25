@@ -2,7 +2,7 @@
 require_once 'includes/config.php';
 $currentPage = 'blog';
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 
 /* ── NEWSLETTER TABLE (safe migration) ── */
@@ -130,7 +130,7 @@ if ($conn) {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Good Shepherd Tours & Travels Blog | Travel tips, destination guides, culture, wildlife and everything you need to know about Sri Lanka."/>
+  <meta name="description" content="Yallah Ceylon Travels Blog | Travel tips, destination guides, culture, wildlife and everything you need to know about Sri Lanka."/>
   <meta property="og:type"        content="website"/>
   <meta property="og:site_name"   content="<?= e($siteTitle) ?>"/>
   <meta property="og:title"       content="Travel Blog | <?= e($siteTitle) ?>"/>
@@ -204,7 +204,7 @@ if ($conn) {
               <div class="section-tag">Editor's Pick</div>
               <h2><?= e($featured['title']) ?></h2>
               <div class="blog-meta">
-                <span><i class="fas fa-user"></i> <?= e($featured['author'] ?: 'Good Shepherd Tours & Travels') ?></span>
+                <span><i class="fas fa-user"></i> <?= e($featured['author'] ?: 'Yallah Ceylon Travels') ?></span>
                 <span><i class="fas fa-calendar-alt"></i> <?= fmtDate($featured['published_at']) ?></span>
                 <?php if ($featured['read_time']): ?><span><i class="fas fa-clock"></i> <?= (int)$featured['read_time'] ?> min read</span><?php endif; ?>
               </div>
@@ -239,7 +239,7 @@ if ($conn) {
               <div class="blog-card-footer">
                 <div class="blog-card-author">
                   <div class="blog-card-author-dot"><i class="fas fa-user"></i></div>
-                  <?= e($p['author'] ?: 'Good Shepherd Tours & Travels Team') ?>
+                  <?= e($p['author'] ?: 'Yallah Ceylon Travels Team') ?>
                 </div>
                 <span class="read-more-btn" style="font-size:12px;">Read <i class="fas fa-arrow-right"></i></span>
               </div>

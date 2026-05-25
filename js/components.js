@@ -6,8 +6,8 @@ const headerHTML = `
       <a href="tel:+94775775211">
         <i class="fas fa-phone-alt"></i>+94 77 577 5211
       </a>
-      <a href="mailto:info@goodsheperdtours.com">
-        <i class="fas fa-envelope"></i>info@goodsheperdtours.com
+      <a href="mailto:info@yallahceylontravels.com">
+        <i class="fas fa-envelope"></i>info@yallahceylontravels.com
       </a>
     </div>
     <div class="topbar-right">
@@ -27,7 +27,7 @@ const headerHTML = `
     <a href="index.html" class="logo">
       <img
         src="images/logo.png"
-        alt="Good Shepherd Tours & Travels"
+        alt="Yallah Ceylon Travels"
         class="logo-img"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
       />
@@ -35,7 +35,7 @@ const headerHTML = `
         <i class="fas fa-compass"></i>
       </div>
       <div>
-        <div class="logo-text">Good Shepherd Tours & Travels</div>
+        <div class="logo-text">Yallah Ceylon Travels</div>
         <div class="logo-sub">Sri Lanka's Premier Tour Operator</div>
       </div>
     </a>
@@ -97,14 +97,14 @@ const footerHTML = `
           <a href="index.html">
             <img
               src="images/footer-logo.png"
-              alt="Good Shepherd Tours & Travels"
+              alt="Yallah Ceylon Travels"
               class="footer-logo-img"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <div class="footer-logo-fallback" style="display:none;">
               <div class="logo-icon"><i class="fas fa-compass"></i></div>
               <div>
-                <div class="logo-text" style="color:var(--white)">Good Shepherd Tours & Travels</div>
+                <div class="logo-text" style="color:var(--white)">Yallah Ceylon Travels</div>
                 <div class="logo-sub"  style="color:rgba(255,255,255,0.4)">Sri Lanka's Premier Tour Operator</div>
               </div>
             </div>
@@ -160,7 +160,7 @@ const footerHTML = `
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope footer-contact-icon"></i>
-            <span>info@goodsheperdtours.com</span>
+            <span>info@yallahceylontravels.com</span>
           </div>
           <div class="footer-contact-item">
             <i class="fab fa-whatsapp footer-contact-icon"></i>
@@ -180,7 +180,7 @@ const footerHTML = `
   <div class="container">
     <div class="footer-bottom">
       <span>
-        © ${new Date().getFullYear()} Good Shepherd Tours & Travels. All rights reserved.
+        © ${new Date().getFullYear()} Yallah Ceylon Travels. All rights reserved.
         &nbsp;|&nbsp;
         <span class="designed-by">Designed by <a href="https://www.asseminate.com/" target="_blank">Asseminate</a></span>
       </span>

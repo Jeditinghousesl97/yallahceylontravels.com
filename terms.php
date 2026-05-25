@@ -1,8 +1,8 @@
 <?php
 require_once 'includes/config.php';
 $currentPage = 'terms';
-$siteTitle   = setting('site_name', 'Good Shepherd Tours & Travels');
-$siteEmail   = setting('site_email', 'info@goodsheperdtours.com');
+$siteTitle   = setting('site_name', 'Yallah Ceylon Travels');
+$siteEmail   = setting('site_email', 'info@yallahceylontravels.com');
 $siteAddress = setting('site_address', '289/1 Madampagama, Kuleegoda, Ambalangoda, Sri Lanka');
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $siteAddress = setting('site_address', '289/1 Madampagama, Kuleegoda, Ambalangod
   <title>Terms of Service | <?= e($siteTitle) ?></title>
   <meta name="description" content="Terms of Service for <?= e($siteTitle) ?>. Please read these terms carefully before booking a tour with us."/>
   <meta property="og:title"       content="Terms of Service | <?= e($siteTitle) ?>"/>
-  <meta property="og:description" content="Read the Terms of Service for Good Shepherd Tours & Travels before making a booking."/>
+  <meta property="og:description" content="Read the Terms of Service for Yallah Ceylon Travels before making a booking."/>
   <meta property="og:type"        content="website"/>
   <meta property="og:image"       content="<?= e(seoImageUrl()) ?>"/>
   <link rel="icon"       type="image/png"  href="<?= e(faviconUrl()) ?>"/>

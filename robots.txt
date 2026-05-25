@@ -42,4 +42,4 @@ Disallow: /admin/uploads/
 Disallow: /maintenance.php
 
 # XML Sitemap
-Sitemap: https://goodsheperdtours.com/sitemap.xml
+Sitemap: https://yallahceylontravels.com/sitemap.xml

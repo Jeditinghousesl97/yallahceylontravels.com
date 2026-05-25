@@ -2,10 +2,10 @@
 require_once 'includes/config.php';
 $currentPage = 'about';
 
-$siteTitle = setting('site_name',      'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name',      'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp',  '94775775211');
 $phone     = setting('site_phone',     '+94 77 577 5211');
-$email     = setting('site_email',     'info@goodsheperdtours.com');
+$email     = setting('site_email',     'info@yallahceylontravels.com');
 
 /* ── WHY CHOOSE US (dynamic) ── */
 $whyUs = [];
@@ -36,7 +36,7 @@ $aImg3  = setting('about_img3',  '');
 $storyTag   = setting('about_story_tag', 'Our Story');
 $storyH1    = setting('about_story_heading_line1', 'A Passion for');
 $storyH2    = setting('about_story_heading_line2', 'Sharing Sri Lanka');
-$storyP1    = setting('about_story_para1', 'Good Shepherd Tours & Travels was born from a deep love for this beautiful island and a desire to share its wonders with the world. Founded in 2014, we began as a small, passionate team of local travel enthusiasts committed to one simple goal — giving every traveler a genuine, unforgettable Sri Lanka experience.');
+$storyP1    = setting('about_story_para1', 'Yallah Ceylon Travels was born from a deep love for this beautiful island and a desire to share its wonders with the world. Founded in 2014, we began as a small, passionate team of local travel enthusiasts committed to one simple goal — giving every traveler a genuine, unforgettable Sri Lanka experience.');
 $storyP2    = setting('about_story_para2', 'Over the years we have grown into one of Sri Lanka\'s most trusted inbound tour operators, serving hundreds of satisfied guests from over 30 countries. From luxury private tours to budget-friendly group adventures, every journey we craft is built on personal care, deep local knowledge and unwavering reliability.');
 $storyP3    = setting('about_story_para3', 'We believe travel is not just about visiting places — it\'s about connecting with people, cultures and stories. That\'s why everything we do, from your first inquiry to your farewell at the airport, is handled with warmth, honesty and attention to detail.');
 $foundedYr  = setting('about_founded_year', '2014');

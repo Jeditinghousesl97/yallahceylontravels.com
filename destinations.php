@@ -2,7 +2,7 @@
 require_once 'includes/config.php';
 $currentPage = 'destinations';
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 
 /* ── FETCH DESTINATION CATEGORIES (only those with active destinations) ── */

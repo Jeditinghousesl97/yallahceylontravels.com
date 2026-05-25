@@ -48,14 +48,14 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="<?= e(setting('meta_description','Gallery & Testimonials | See what our guests say and discover Sri Lanka through our travel photos with Good Shepherd Tours & Travels.')) ?>"/>
+  <meta name="description" content="<?= e(setting('meta_description','Gallery & Testimonials | See what our guests say and discover Sri Lanka through our travel photos with Yallah Ceylon Travels.')) ?>"/>
   <meta property="og:type"        content="website"/>
-  <meta property="og:site_name"   content="<?= e(setting('site_name','Good Shepherd Tours & Travels')) ?>"/>
-  <meta property="og:title"       content="Gallery & Testimonials | <?= e(setting('site_name','Good Shepherd Tours & Travels')) ?>"/>
-  <meta property="og:description" content="See what our guests say and discover Sri Lanka through our travel photos with Good Shepherd Tours & Travels."/>
+  <meta property="og:site_name"   content="<?= e(setting('site_name','Yallah Ceylon Travels')) ?>"/>
+  <meta property="og:title"       content="Gallery & Testimonials | <?= e(setting('site_name','Yallah Ceylon Travels')) ?>"/>
+  <meta property="og:description" content="See what our guests say and discover Sri Lanka through our travel photos with Yallah Ceylon Travels."/>
   <meta property="og:image"       content="<?= e(seoImageUrl('images/gallery-hero.jpg')) ?>"/>
   <meta property="og:url"         content="<?= SITE_URL ?>/gallery.php"/>
-  <title>Gallery & Testimonials | <?= e(setting('site_name','Good Shepherd Tours & Travels')) ?></title>
+  <title>Gallery & Testimonials | <?= e(setting('site_name','Yallah Ceylon Travels')) ?></title>
   <link rel="icon" type="image/png" href="<?= e(faviconUrl()) ?>"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="css/global.css"/>
@@ -152,7 +152,7 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
             <div class="ts-slide">
               <div class="test-card">
                 <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="test-text">"Booked a 10-day island-wide tour and it completely exceeded expectations. Every hotel was hand-picked and Good Shepherd Tours & Travels treated us like family."</p>
+                <p class="test-text">"Booked a 10-day island-wide tour and it completely exceeded expectations. Every hotel was hand-picked and Yallah Ceylon Travels treated us like family."</p>
                 <div class="test-author"><div class="test-avatar"><i class="fas fa-user"></i></div><div><div class="test-name">Marco Bianchi</div><div class="test-from"><i class="fas fa-map-marker-alt"></i> Italy</div></div></div>
               </div>
             </div>
@@ -206,7 +206,7 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
       <div class="section-header">
         <div class="section-tag reveal">Photo Gallery</div>
         <h2 class="section-title reveal">Our <em>Gallery</em></h2>
-        <p class="section-subtitle reveal">A glimpse into the incredible moments, places and people that make every Good Shepherd Tours & Travels journey truly special.</p>
+        <p class="section-subtitle reveal">A glimpse into the incredible moments, places and people that make every Yallah Ceylon Travels journey truly special.</p>
       </div>
 
       <!-- Filter pills -->

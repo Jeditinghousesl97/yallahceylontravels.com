@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = trim($_POST['title'] ?? '');
     $content     = $_POST['content'] ?? '';
     $excerpt     = trim($_POST['excerpt'] ?? '');
-    $author      = trim($_POST['author'] ?? 'Good Shepherd Tours & Travels');
+    $author      = trim($_POST['author'] ?? 'Yallah Ceylon Travels');
     $read_time   = max(1, (int)($_POST['read_time'] ?? 5));
     $cat_id      = (int)($_POST['category_id'] ?? 0);
     $is_featured = isset($_POST['is_featured']) ? 1 : 0;
@@ -150,7 +150,7 @@ $v = $editPost ?? [];
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Blog Posts | Good Shepherd Tours & Travels Admin</title>
+<title>Blog Posts | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -385,7 +385,7 @@ $v = $editPost ?? [];
                 <div class="fgrp" style="flex:1">
                   <label>Author</label>
                   <input type="text" name="author" class="form-control"
-                         value="<?= htmlspecialchars($v['author'] ?? 'Good Shepherd Tours & Travels') ?>"/>
+                         value="<?= htmlspecialchars($v['author'] ?? 'Yallah Ceylon Travels') ?>"/>
                 </div>
                 <div class="fgrp" style="width:130px">
                   <label>Read Time (min)</label>

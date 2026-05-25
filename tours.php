@@ -19,7 +19,7 @@ if ($conn) {
     if ($r) $tours = $r->fetch_all(MYSQLI_ASSOC);
 }
 
-$siteTitle = setting('site_name', 'Good Shepherd Tours & Travels');
+$siteTitle = setting('site_name', 'Yallah Ceylon Travels');
 $whatsapp  = setting('site_whatsapp', '94775775211');
 
 /* Badge class map */
@@ -35,7 +35,7 @@ $badgeMap = [
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Browse all Sri Lanka tour packages by Good Shepherd Tours & Travels | cultural tours, beach holidays, wildlife safaris, hill country, honeymoon packages and more."/>
+  <meta name="description" content="Browse all Sri Lanka tour packages by Yallah Ceylon Travels | cultural tours, beach holidays, wildlife safaris, hill country, honeymoon packages and more."/>
   <meta property="og:type"        content="website"/>
   <meta property="og:site_name"   content="<?= e($siteTitle) ?>"/>
   <meta property="og:title"       content="All Sri Lanka Tours | <?= e($siteTitle) ?>"/>

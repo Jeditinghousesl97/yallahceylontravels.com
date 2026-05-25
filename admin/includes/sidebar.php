@@ -66,7 +66,7 @@ if (isset($conn)) {
     <div class="sidebar-logo">
         <?php if (file_exists(__DIR__ . '/../../images/logo.png')): ?>
             <img src="<?= defined('SITE_URL') ? SITE_URL : '..' ?>/images/logo.png"
-                 alt="Good Shepherd Tours & Travels"
+                 alt="Yallah Ceylon Travels"
                  class="sidebar-logo-img"
                  onerror="this.style.display='none';document.getElementById('sidebarLogoFallback').style.display='flex';">
             <div class="sidebar-logo-icon" id="sidebarLogoFallback" style="display:none;">
@@ -78,7 +78,7 @@ if (isset($conn)) {
             </div>
         <?php endif; ?>
         <div class="sidebar-logo-text">
-            <div class="sidebar-brand">Good Shepherd Tours & Travels</div>
+            <div class="sidebar-brand">Yallah Ceylon Travels</div>
             <div class="sidebar-sub">Admin Panel</div>
         </div>
     </div>

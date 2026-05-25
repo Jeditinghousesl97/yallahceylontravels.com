@@ -74,7 +74,7 @@ $unread = (int)($conn->query("SELECT COUNT(*) as c FROM enquiries WHERE is_read=
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Messages | Good Shepherd Tours & Travels Admin</title>
+<title>Messages | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -270,7 +270,7 @@ textarea.form-control{resize:vertical;min-height:100px}
           <div style="margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;">
             <div style="font-weight:600;font-size:13.5px;margin-bottom:14px;color:var(--text-dark)"><i class="fas fa-reply" style="color:var(--teal);margin-right:6px"></i>Quick Reply</div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a href="mailto:<?= htmlspecialchars($enquiry['email']) ?>?subject=Re: <?= urlencode('Your enquiry - ' . ($enquiry['tour_type'] ?: 'Good Shepherd Tours & Travels')) ?>"
+              <a href="mailto:<?= htmlspecialchars($enquiry['email']) ?>?subject=Re: <?= urlencode('Your enquiry - ' . ($enquiry['tour_type'] ?: 'Yallah Ceylon Travels')) ?>"
                  class="btn btn-primary btn-sm">
                 <i class="fas fa-envelope"></i> Reply via Email
               </a>

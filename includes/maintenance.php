@@ -1,5 +1,5 @@
 <?php
-$_siteName    = $s['site_name']        ?? 'Good Shepherd Tours & Travels';
+$_siteName    = $s['site_name']        ?? 'Yallah Ceylon Travels';
 $_msg         = !empty($s['maintenance_message']) ? $s['maintenance_message'] : "We're currently upgrading our website. We'll be back shortly!";
 $_countdown   = $s['coming_soon_date'] ?? '';
 $_waRaw       = $s['site_whatsapp']    ?? '';

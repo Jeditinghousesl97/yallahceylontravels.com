@@ -29,7 +29,7 @@ $activePage = 'dashboard';
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Dashboard | Good Shepherd Tours & Travels Admin</title>
+<title>Dashboard | Yallah Ceylon Travels Admin</title>
 <link rel="icon" type="image/png" href="../images/favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -72,7 +72,7 @@ $activePage = 'dashboard';
         <div class="welcome-text">
           <?php $lkHour = (int)(new DateTime('now', new DateTimeZone('Asia/Colombo')))->format('H'); ?>
           <h2>Good <?= ($lkHour < 12 ? 'Morning' : ($lkHour < 17 ? 'Afternoon' : 'Evening')) ?>, <?= htmlspecialchars(adminName()) ?>! 👋</h2>
-          <p>Here's what's happening with Good Shepherd Tours & Travels today.</p>
+          <p>Here's what's happening with Yallah Ceylon Travels today.</p>
         </div>
         <div class="welcome-icon"><i class="fas fa-compass"></i></div>
       </div>
