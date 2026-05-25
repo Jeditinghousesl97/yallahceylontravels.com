@@ -37,6 +37,7 @@ $palette = [
     'theme_teal_mid'   => ['label' => 'Primary Mid', 'default' => '#156060'],
     'theme_teal_light' => ['label' => 'Primary Light', 'default' => '#1A7575'],
     'theme_sticky_header_bg' => ['label' => 'Sticky Header Background', 'default' => '#0A3D3D'],
+    'theme_sticky_header_menu_color' => ['label' => 'Sticky Header Menu Item Color', 'default' => '#D9E4E4'],
     'theme_gold'       => ['label' => 'Secondary', 'default' => '#C9A84C'],
     'theme_gold_dark'  => ['label' => 'Secondary Dark', 'default' => '#A8782A'],
     'theme_gold_light' => ['label' => 'Secondary Light', 'default' => '#E2C97E'],
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 .preview-header{padding:14px 22px;background:var(--preview-sticky-header-bg);color:var(--preview-white);border-bottom:2px solid rgba(255,255,255,.12)}
 .preview-header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .preview-header-brand{font-size:14px;font-weight:700;letter-spacing:.4px}
-.preview-header-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,.82);text-transform:uppercase;letter-spacing:1px}
+.preview-header-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--preview-sticky-header-menu-color);text-transform:uppercase;letter-spacing:1px}
 .preview-kicker{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--preview-gold-light);margin-bottom:12px}
 .preview-kicker::before,.preview-kicker::after{content:'';width:18px;height:1px;background:var(--preview-gold)}
 .preview-hero h3{font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1;margin:0 0 10px}
@@ -275,6 +276,7 @@ function updatePreview() {
     '--preview-teal-dark': colorValue('theme_teal_dark', '#0A3D3D'),
     '--preview-teal': colorValue('theme_teal', '#0F5252'),
     '--preview-sticky-header-bg': colorValue('theme_sticky_header_bg', '#0A3D3D'),
+    '--preview-sticky-header-menu-color': colorValue('theme_sticky_header_menu_color', '#D9E4E4'),
     '--preview-gold': colorValue('theme_gold', '#C9A84C'),
     '--preview-gold-dark': colorValue('theme_gold_dark', '#A8782A'),
     '--preview-gold-light': colorValue('theme_gold_light', '#E2C97E'),
