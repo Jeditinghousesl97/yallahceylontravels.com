@@ -284,7 +284,7 @@ ul { list-style: none; }
 
 /* SCENIC PARALLAX BANNER - shared across all pages */
 .scenic-banner {
-  height: 420px;
+  height: 100vh;
   background: url('../images/scenic-banner.jpg') center / cover no-repeat fixed;
   position: relative;
   display: flex; align-items: center; justify-content: center;
