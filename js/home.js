@@ -58,3 +58,59 @@ document.addEventListener('DOMContentLoaded', () => {
   clone.setAttribute('aria-hidden', 'true');
   wrap.appendChild(clone);
 })();
+
+/* World times */
+(function() {
+  const cards = Array.from(document.querySelectorAll('.world-time-card[data-timezone]'));
+  if (!cards.length) return;
+
+  function updateWorldTimes() {
+    const now = new Date();
+    cards.forEach((card) => {
+      const timezone = card.getAttribute('data-timezone');
+      const valueEl = card.querySelector('.world-time-value');
+      const hourHand = card.querySelector('.analog-hand.hour');
+      const minuteHand = card.querySelector('.analog-hand.minute');
+      const secondHand = card.querySelector('.analog-hand.second');
+      if (!timezone || !valueEl) return;
+      try {
+        const digital = new Intl.DateTimeFormat('en-GB', {
+          timeZone: timezone,
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        valueEl.textContent = digital.format(now);
+
+        const parts = new Intl.DateTimeFormat('en-GB', {
+          timeZone: timezone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        }).formatToParts(now);
+        const getPart = (type) => {
+          const found = parts.find((p) => p.type === type);
+          return found ? parseInt(found.value, 10) : 0;
+        };
+        const h24 = getPart('hour');
+        const m = getPart('minute');
+        const s = getPart('second');
+
+        const h12 = h24 % 12;
+        const hourDeg = (h12 * 30) + (m * 0.5) + (s / 120);
+        const minDeg = (m * 6) + (s * 0.1);
+        const secDeg = s * 6;
+
+        if (hourHand) hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+        if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+        if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+      } catch (err) {
+        valueEl.textContent = '--:--';
+      }
+    });
+  }
+
+  updateWorldTimes();
+  setInterval(updateWorldTimes, 1000);
+})();

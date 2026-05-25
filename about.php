@@ -228,7 +228,7 @@ $missionText = setting('about_mission_text', 'To provide exceptional, personaliz
 
 <!-- TESTIMONIALS (dynamic from DB) -->
 <?php if ($testimonials): ?>
-<section class="about-testimonials section-pad" style="background:var(--off-white)">
+<section class="about-testimonials section-pad" style="background:#f2f8ff">
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal">Real Experiences</div>

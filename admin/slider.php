@@ -11,6 +11,26 @@ $editId     = isset($_GET['edit']) ? (int)$_GET['edit'] : 0;
 
 adminEnsureColumn($conn, 'slider', 'video', "VARCHAR(255) DEFAULT NULL AFTER image");
 adminEnsureColumn($conn, 'slider', 'video_url', "VARCHAR(500) DEFAULT NULL AFTER video");
+adminEnsureColumn($conn, 'slider', 'overlay_color', "VARCHAR(7) DEFAULT NULL AFTER video_url");
+adminEnsureColumn($conn, 'slider', 'overlay_opacity', "DECIMAL(4,2) DEFAULT NULL AFTER overlay_color");
+
+function normalizeOverlayColor($value, $default = '#0A3D3D') {
+    $value = trim((string)$value);
+    if ($value === '') return $default;
+    if ($value[0] !== '#') $value = '#' . $value;
+    if (!preg_match('/^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/', $value)) return $default;
+    if (strlen($value) === 4) {
+        $value = '#' . $value[1] . $value[1] . $value[2] . $value[2] . $value[3] . $value[3];
+    }
+    return strtoupper($value);
+}
+function normalizeOverlayOpacity($value, $default = 0.55) {
+    if ($value === '' || $value === null) return $default;
+    $num = (float)$value;
+    if ($num < 0) $num = 0;
+    if ($num > 1) $num = 1;
+    return round($num, 2);
+}
 
 /* ── DELETE ── */
 if (isset($_GET['delete'])) {
@@ -42,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $btn2_url  = trim($_POST['btn2_url']    ?? '#');
     $sort      = (int)($_POST['sort_order'] ?? 0);
     $is_active = isset($_POST['is_active'])  ? 1 : 0;
+    $overlayColor   = normalizeOverlayColor($_POST['overlay_color'] ?? '#0A3D3D');
+    $overlayOpacity = normalizeOverlayOpacity($_POST['overlay_opacity'] ?? '0.55');
     $existing     = $postId ? ($conn->query("SELECT image, video, video_url FROM slider WHERE id=$postId")->fetch_assoc() ?: []) : [];
     $videoUrlRaw  = trim($_POST['video_url'] ?? '');
     $videoUrl     = normalizeVideoUrl($videoUrlRaw);
@@ -99,6 +121,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imgE    = $conn->real_escape_string($imagePath);
             $vidE    = $conn->real_escape_string($videoPath);
             $urlE    = $conn->real_escape_string($videoUrlPath);
+            $ovColorE = $conn->real_escape_string($overlayColor);
+            $ovOpacitySql = number_format($overlayOpacity, 2, '.', '');
 
             if ($postId) {
                 $conn->query("UPDATE slider SET
@@ -106,13 +130,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     btn1_text='$b1tE', btn1_url='$b1uE',
                     btn2_text='$b2tE', btn2_url='$b2uE',
                     image='$imgE', video='$vidE', video_url='$urlE',
+                    overlay_color='$ovColorE', overlay_opacity=$ovOpacitySql,
                     sort_order=$sort, is_active=$is_active
                     WHERE id=$postId");
                 header('Location: slider.php?msg=updated'); exit;
             } else {
                 $conn->query("INSERT INTO slider
-                    (title, subtitle, image, video, video_url, btn1_text, btn1_url, btn2_text, btn2_url, sort_order, is_active)
-                    VALUES ('$titleE','$subE','$imgE','$vidE','$urlE','$b1tE','$b1uE','$b2tE','$b2uE',$sort,$is_active)");
+                    (title, subtitle, image, video, video_url, overlay_color, overlay_opacity, btn1_text, btn1_url, btn2_text, btn2_url, sort_order, is_active)
+                    VALUES ('$titleE','$subE','$imgE','$vidE','$urlE','$ovColorE',$ovOpacitySql,'$b1tE','$b1uE','$b2tE','$b2uE',$sort,$is_active)");
                 header('Location: slider.php?msg=added'); exit;
             }
         }
@@ -180,6 +205,8 @@ $v = $editItem ?? [];
 .edit-mode .form-sec-head h3,.edit-mode .form-sec-head i{color:#a8782a}
 .img-preview{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-top:6px;display:block}
 .btn-divider{height:1px;background:var(--border);margin:4px 0}
+.range-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
+.range-val{font-size:12px;font-weight:700;color:var(--teal-dark);min-width:40px;text-align:right}
 @media(max-width:960px){.split-layout{grid-template-columns:1fr}.slide-card{grid-template-columns:1fr}.slide-thumb{width:100%;height:160px}.slide-thumb-ph{width:100%;height:160px}.frow.c2{grid-template-columns:1fr}}
 </style>
 </head>
@@ -273,6 +300,23 @@ $v = $editItem ?? [];
                        placeholder="https://example.com/hero-video.mp4"
                        value="<?= htmlspecialchars($v['video_url'] ?? '') ?>"/>
                 <small style="font-size:11px;color:var(--text-light)">Use a direct MP4/WebM file URL. Leave blank if you are uploading a video file.</small>
+              </div>
+
+              <div class="frow c2">
+                <div class="fgrp">
+                  <label>Overlay Color</label>
+                  <input type="color" name="overlay_color" id="overlayColor" class="form-control"
+                         value="<?= htmlspecialchars(normalizeOverlayColor($v['overlay_color'] ?? '#0A3D3D')) ?>"/>
+                </div>
+                <div class="fgrp">
+                  <label>Overlay Opacity</label>
+                  <div class="range-row">
+                    <input type="range" name="overlay_opacity" id="overlayOpacity" class="form-control"
+                           min="0" max="1" step="0.01"
+                           value="<?= htmlspecialchars((string)normalizeOverlayOpacity($v['overlay_opacity'] ?? '0.55')) ?>"/>
+                    <span class="range-val" id="overlayOpacityVal"></span>
+                  </div>
+                </div>
               </div>
 
               <div class="btn-divider"></div>
@@ -374,6 +418,13 @@ $v = $editItem ?? [];
                 <?php endif; ?>
 
                 <div class="slide-btns">
+                  <?php if (!empty($slide['overlay_color']) || $slide['overlay_opacity'] !== null): ?>
+                    <span class="slide-btn-tag secondary">
+                      <i class="fas fa-layer-group"></i>
+                      <?= htmlspecialchars(normalizeOverlayColor($slide['overlay_color'] ?? '#0A3D3D')) ?>
+                      @ <?= htmlspecialchars(number_format(normalizeOverlayOpacity($slide['overlay_opacity'] ?? '0.55'), 2)) ?>
+                    </span>
+                  <?php endif; ?>
                   <?php if (!empty($slide['video'])): ?>
                     <span class="slide-btn-tag"><i class="fas fa-video"></i> Video upload</span>
                   <?php elseif (!empty($slide['video_url'])): ?>
@@ -471,6 +522,14 @@ function confirmDelete(id, title) {
 document.getElementById('deleteModal')?.addEventListener('click', function(e) {
   if (e.target === this) this.style.display = 'none';
 });
+const overlayOpacityInput = document.getElementById('overlayOpacity');
+const overlayOpacityVal = document.getElementById('overlayOpacityVal');
+function syncOverlayOpacityLabel() {
+  if (!overlayOpacityInput || !overlayOpacityVal) return;
+  overlayOpacityVal.textContent = Number(overlayOpacityInput.value || 0).toFixed(2);
+}
+overlayOpacityInput?.addEventListener('input', syncOverlayOpacityLabel);
+syncOverlayOpacityLabel();
 </script>
 </body>
 </html>

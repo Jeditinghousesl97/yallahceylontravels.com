@@ -44,7 +44,7 @@
 }
 
 /* TESTIMONIALS SECTION */
-.gallery-testimonials { background: var(--off-white); }
+.gallery-testimonials { background: #f2f8ff; }
 .gallery-testimonials .section-tag  { color: var(--teal); }
 .gallery-testimonials .section-title { color: var(--teal-dark); }
 .gallery-testimonials .section-subtitle { color: var(--text-light); }
@@ -184,7 +184,7 @@
 .trust-badge-label { font-size: 11px; color: var(--text-light); letter-spacing: .5px; }
 
 /* GALLERY SECTION */
-.gallery-section    { background: var(--off-white); }
+.gallery-section    { background: var(--white); }
 
 /* Filter bar */
 .gallery-filter-bar {

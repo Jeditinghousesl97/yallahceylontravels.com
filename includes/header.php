@@ -11,7 +11,6 @@ $_taUrl     = setting('tripadvisor_url','');
 $_ytUrl     = setting('youtube_url',    '');
 $_tkUrl     = setting('tiktok_url',     '');
 $_twUrl     = setting('twitter_url',    '');
-$_showBlog  = hasPublishedBlogPosts();
 $_cp = $currentPage ?? 'home';
 function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
 ?>
@@ -73,7 +72,7 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
       <li><a href="about.php"        class="nav-link<?= navCls('about') ?>">About Us</a></li>
       <li><a href="tours.php"        class="nav-link<?= navCls('tours') ?>">All Sri Lanka Tours</a></li>
       <li><a href="destinations.php" class="nav-link<?= navCls('destinations') ?>">Destinations</a></li>
-      <?php if ($_showBlog): ?><li><a href="blog.php" class="nav-link<?= navCls('blog') ?>">Blog</a></li><?php endif; ?>
+      <li><a href="blog.php" class="nav-link<?= navCls('blog') ?>">Blog</a></li>
       <li><a href="gallery.php"      class="nav-link<?= navCls('gallery') ?>">Gallery</a></li>
       <li><a href="contact.php"      class="nav-link<?= navCls('contact') ?>">Contact</a></li>
       <li><a href="contact.php#contact-form" class="nav-link btn-book">Book Now</a></li>
@@ -96,7 +95,7 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
     <li><a href="about.php">About Us</a></li>
     <li><a href="tours.php">All Sri Lanka Tours</a></li>
     <li><a href="destinations.php">Destinations</a></li>
-    <?php if ($_showBlog): ?><li><a href="blog.php">Blog</a></li><?php endif; ?>
+    <li><a href="blog.php">Blog</a></li>
     <li><a href="gallery.php">Gallery</a></li>
     <li><a href="contact.php">Contact</a></li>
     <li class="mobile-lang-switch">

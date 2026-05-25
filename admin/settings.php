@@ -112,6 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ];
             }
             saveSetting($conn, 'business_hours_json', json_encode($hoursRows));
+
+            // Save world times rows (city + IANA timezone)
+            $wtCities = $_POST['world_time_city'] ?? [];
+            $wtZones  = $_POST['world_time_timezone'] ?? [];
+            $worldTimesRows = [];
+            foreach ($wtCities as $i => $city) {
+                $city = trim((string)$city);
+                $zone = trim((string)($wtZones[$i] ?? ''));
+                if ($city === '' || $zone === '') continue;
+                $worldTimesRows[] = ['city' => $city, 'timezone' => $zone];
+            }
+            saveSetting($conn, 'world_times_json', json_encode($worldTimesRows));
             break;
 
         case 'smtp':
@@ -530,6 +542,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ['days'=>'Sunday',         'time'=>'8:00 AM - 8:00 PM','status'=>'open'],
             ['days'=>'Emergency Support','time'=>'24 / 7',         'status'=>'special'],
         ];
+        $worldTimesJson = $s['world_times_json'] ?? '';
+        $worldTimesRows = $worldTimesJson ? (json_decode($worldTimesJson, true) ?: []) : [];
+        if (!$worldTimesRows) $worldTimesRows = [
+            ['city' => 'Colombo', 'timezone' => 'Asia/Colombo'],
+            ['city' => 'London', 'timezone' => 'Europe/London'],
+            ['city' => 'New York', 'timezone' => 'America/New_York'],
+            ['city' => 'Sydney', 'timezone' => 'Australia/Sydney'],
+        ];
         ?>
         <div class="settings-section">
           <div class="settings-section-head">
@@ -561,6 +581,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <i class="fas fa-plus"></i> Add Row
             </button>
             <p class="hint" style="margin-top:8px"><strong>Open</strong> = green badge · <strong>Closed</strong> = red badge · <strong>Special</strong> = gold highlight row (e.g. Emergency Support)</p>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-head">
+            <h2>Home World Times</h2>
+            <p>Manage the Home page world clocks list using City + IANA Timezone.</p>
+          </div>
+          <div class="settings-section-body">
+            <div id="worldTimesRows">
+              <?php foreach ($worldTimesRows as $wt): ?>
+              <div class="world-time-editor-row" style="display:grid;grid-template-columns:1fr 1fr 36px;gap:10px;align-items:center;margin-bottom:10px;">
+                <input type="text" name="world_time_city[]" class="form-control" placeholder="e.g. London"
+                       value="<?= htmlspecialchars($wt['city'] ?? '') ?>"/>
+                <input type="text" name="world_time_timezone[]" class="form-control" placeholder="e.g. Europe/London"
+                       value="<?= htmlspecialchars($wt['timezone'] ?? '') ?>"/>
+                <button type="button" onclick="this.closest('.world-time-editor-row').remove()"
+                        style="width:36px;height:38px;border:none;border-radius:8px;background:var(--red-pale);color:var(--red);cursor:pointer;font-size:14px;">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <?php endforeach; ?>
+            </div>
+            <button type="button" onclick="addWorldTimeRow()"
+                    style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px dashed var(--border);border-radius:8px;background:var(--off-white);color:var(--text-mid);cursor:pointer;font-size:13px;font-weight:500;">
+              <i class="fas fa-plus"></i> Add Time Row
+            </button>
+            <p class="hint" style="margin-top:8px">Timezone examples: <code>Asia/Colombo</code>, <code>Europe/London</code>, <code>America/New_York</code>, <code>Australia/Sydney</code>.</p>
           </div>
         </div>
 
@@ -888,6 +936,22 @@ function addHoursRow() {
       <option value="special">Special</option>
     </select>
     <button type="button" onclick="this.closest('.hours-editor-row').remove()"
+            style="width:36px;height:38px;border:none;border-radius:8px;background:var(--red-pale);color:var(--red);cursor:pointer;font-size:14px;">
+      <i class="fas fa-times"></i>
+    </button>`;
+  wrap.appendChild(div);
+}
+
+function addWorldTimeRow() {
+  const wrap = document.getElementById('worldTimesRows');
+  if (!wrap) return;
+  const div = document.createElement('div');
+  div.className = 'world-time-editor-row';
+  div.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 36px;gap:10px;align-items:center;margin-bottom:10px;';
+  div.innerHTML = `
+    <input type="text" name="world_time_city[]" class="form-control" placeholder="e.g. London"/>
+    <input type="text" name="world_time_timezone[]" class="form-control" placeholder="e.g. Europe/London"/>
+    <button type="button" onclick="this.closest('.world-time-editor-row').remove()"
             style="width:36px;height:38px;border:none;border-radius:8px;background:var(--red-pale);color:var(--red);cursor:pointer;font-size:14px;">
       <i class="fas fa-times"></i>
     </button>`;

@@ -89,8 +89,6 @@ $stat4Count  = setting('about_stat4_count',  '50');
 $stat4Suffix = setting('about_stat4_suffix', '+');
 $stat4Label  = setting('about_stat4_label',  'Tour Packages');
 $yearsCount  = $stat3Count;
-$visionText  = setting('about_vision_text',  'To be the most trusted and preferred travel partner for luxury and experiential travel, setting the gold standard for high-end trips in Sri Lanka.');
-$missionText = setting('about_mission_text', 'To provide exceptional, personalized travel services that create unforgettable memories for our guests while actively promoting sustainable growth.');
 
 /* Gallery span classes for masonry effect */
 $galClasses = ['tall', 'wide', '', '', '', ''];
@@ -109,6 +107,9 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
   <meta property="og:url"         content="<?= SITE_URL ?>/index.php"/>
   <title><?= e($siteTitle) ?> | Create Unforgettable Travel Memories</title>
   <link rel="icon" type="image/png" href="<?= e(faviconUrl()) ?>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="css/global.css"/>
   <link rel="stylesheet" href="css/header.css"/>
@@ -126,8 +127,26 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
   <div class="hero-slides">
     <?php foreach ($slides as $slide): ?>
       <?php $slideHasVideo = !empty($slide['video']) || !empty($slide['video_url']); ?>
+      <?php
+        $overlayColorRaw = trim((string)($slide['overlay_color'] ?? ''));
+        if ($overlayColorRaw !== '' && $overlayColorRaw[0] !== '#') $overlayColorRaw = '#' . $overlayColorRaw;
+        $overlayColor = preg_match('/^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/', $overlayColorRaw) ? strtoupper($overlayColorRaw) : '#0A3D3D';
+        if (strlen($overlayColor) === 4) {
+          $overlayColor = '#' . $overlayColor[1] . $overlayColor[1] . $overlayColor[2] . $overlayColor[2] . $overlayColor[3] . $overlayColor[3];
+        }
+        $overlayOpacity = (float)($slide['overlay_opacity'] ?? 0.55);
+        if ($overlayOpacity < 0) $overlayOpacity = 0;
+        if ($overlayOpacity > 1) $overlayOpacity = 1;
+        $slideStyleParts = [];
+        if (!$slideHasVideo && !empty($slide['image'])) {
+          $slideStyleParts[] = "background-image:url('" . imgUrl($slide['image']) . "')";
+        }
+        $slideStyleParts[] = '--slide-overlay-color:' . $overlayColor;
+        $slideStyleParts[] = '--slide-overlay-opacity:' . number_format($overlayOpacity, 2, '.', '');
+        $slideStyle = implode(';', $slideStyleParts);
+      ?>
       <div class="hero-slide<?= $slideHasVideo ? ' has-video' : '' ?>"
-        <?= (!$slideHasVideo && !empty($slide['image'])) ? ' style="background-image:url(\''.imgUrl($slide['image']).'\')"' : '' ?>
+        style="<?= e($slideStyle) ?>"
         data-title="<?= e($slide['title'] ?? '') ?>"
         data-subtitle="<?= e($slide['subtitle'] ?? '') ?>"
         data-btn1-text="<?= e($slide['btn1_text'] ?? '') ?>"
@@ -194,6 +213,60 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
 
 </section>
 
+<?php
+$worldTimes = [];
+$worldTimesJson = setting('world_times_json', '');
+if ($worldTimesJson) {
+  $decodedWorldTimes = json_decode($worldTimesJson, true);
+  if (is_array($decodedWorldTimes)) {
+    foreach ($decodedWorldTimes as $row) {
+      $city = trim((string)($row['city'] ?? ''));
+      $timezone = trim((string)($row['timezone'] ?? ''));
+      if ($city !== '' && $timezone !== '') {
+        $worldTimes[] = ['city' => $city, 'timezone' => $timezone];
+      }
+    }
+  }
+}
+if (!$worldTimes) {
+  $worldTimes = [
+    ['city' => 'Colombo', 'timezone' => 'Asia/Colombo'],
+    ['city' => 'London', 'timezone' => 'Europe/London'],
+    ['city' => 'New York', 'timezone' => 'America/New_York'],
+    ['city' => 'Sydney', 'timezone' => 'Australia/Sydney'],
+  ];
+}
+?>
+
+<!-- WORLD CLOCKS -->
+<section class="world-times section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Global Access</div>
+      <h2 class="section-title reveal">World <em>Times</em></h2>
+      <p class="section-subtitle reveal">Live local times from key traveler hubs we commonly support.</p>
+    </div>
+    <div class="world-time-grid reveal">
+      <?php foreach ($worldTimes as $wt): ?>
+      <div class="world-time-card" data-timezone="<?= e($wt['timezone']) ?>">
+        <div class="world-time-analog" aria-hidden="true">
+          <span class="analog-mark m12"></span>
+          <span class="analog-mark m3"></span>
+          <span class="analog-mark m6"></span>
+          <span class="analog-mark m9"></span>
+          <span class="analog-hand hour"></span>
+          <span class="analog-hand minute"></span>
+          <span class="analog-hand second"></span>
+          <span class="analog-pin"></span>
+        </div>
+        <div class="world-time-city"><?= e($wt['city']) ?></div>
+        <div class="world-time-value">--:--</div>
+        <div class="world-time-zone"><?= e($wt['timezone']) ?></div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
 
 <!-- WELCOME / ABOUT -->
 <section class="welcome section-pad" id="about">
@@ -250,8 +323,8 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal">What We Offer</div>
-      <h2 class="section-title reveal">Discover Sri Lanka <em>Your Way</em></h2>
-      <p class="section-subtitle reveal">Expert travel experiences through Sri Lanka's breathtaking landscapes, ancient cities, and pristine beaches.</p>
+      <h2 class="section-title reveal">Explore Paradise <em>With Confidence</em></h2>
+      <p class="section-subtitle reveal">Explore Sri Lanka with personalized tours, trusted travel support, comfortable transport, hotel bookings, and unforgettable experiences designed for every traveler.</p>
     </div>
     <div class="offer-grid stagger-children">
       <?php if ($offerItems): ?>
@@ -336,31 +409,6 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
   </div>
 </section>
 
-
-<!-- VISION & MISSION -->
-<section class="vision-mission section-pad">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">Our Purpose</div>
-      <h2 class="section-title reveal">Vision &amp; <em>Mission</em></h2>
-      <p class="section-subtitle reveal">The principles that guide every journey we craft and every traveler we serve.</p>
-    </div>
-    <div class="vm-grid">
-      <div class="vm-card reveal-left" data-letter="V">
-        <div class="vm-icon-wrap"><i class="fas fa-eye"></i></div>
-        <h3>Our <em>Vision</em></h3>
-        <div class="vm-divider"></div>
-        <p><?= e($visionText) ?></p>
-      </div>
-      <div class="vm-card reveal-right" data-letter="M">
-        <div class="vm-icon-wrap"><i class="fas fa-bullseye"></i></div>
-        <h3>Our <em>Mission</em></h3>
-        <div class="vm-divider"></div>
-        <p><?= e($missionText) ?></p>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- FEATURED TOURS -->
@@ -654,7 +702,7 @@ $galClasses = ['tall', 'wide', '', '', '', ''];
 <!-- SCENIC PARALLAX BANNER -->
 <div class="scenic-banner">
   <div class="scenic-banner-text reveal">
-    <h2>The Pearl of the<br><strong>Indian Ocean</strong></h2>
+    <h2>Create Memories in<br><strong>Beautiful Ceylon</strong></h2>
   </div>
 </div>
 
