@@ -47,6 +47,12 @@ $stats = [
   ['count'=>setting('about_stat3_count','10'),  'suffix'=>setting('about_stat3_suffix','+'), 'label'=>setting('about_stat3_label','Years Experience')],
   ['count'=>setting('about_stat4_count','50'),  'suffix'=>setting('about_stat4_suffix','+'), 'label'=>setting('about_stat4_label','Tour Packages')],
 ];
+$stats = array_values(array_filter($stats, function ($stat) {
+  $count = trim((string)($stat['count'] ?? ''));
+  $label = trim((string)($stat['label'] ?? ''));
+  if ($count === '' || $label === '') return false;
+  return is_numeric($count);
+}));
 $visionText  = setting('about_vision_text',  'To be the most trusted and preferred travel partner for luxury and experiential travel, setting the gold standard for high-end trips in Sri Lanka.');
 $missionText = setting('about_mission_text', 'To provide exceptional, personalized travel services that create unforgettable memories for our guests while actively promoting sustainable growth.');
 ?>
@@ -114,6 +120,7 @@ $missionText = setting('about_mission_text', 'To provide exceptional, personaliz
         <?php if ($storyP2): ?><p><?= e($storyP2) ?></p><?php endif; ?>
         <?php if ($storyP3): ?><p><?= e($storyP3) ?></p><?php endif; ?>
 
+        <?php if (!empty($stats)): ?>
         <div class="about-highlights">
           <?php foreach ($stats as $i => $stat): ?>
             <?php if ($i > 0): ?><div class="about-highlight-div"></div><?php endif; ?>
@@ -123,6 +130,7 @@ $missionText = setting('about_mission_text', 'To provide exceptional, personaliz
             </div>
           <?php endforeach; ?>
         </div>
+        <?php endif; ?>
 
         <a href="contact.php#contact-form" class="btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
       </div>
@@ -421,7 +429,12 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const el     = entry.target;
-    const target = parseInt(el.dataset.count);
+    const target = parseInt(el.dataset.count, 10);
+    if (!Number.isFinite(target) || target < 0) {
+      el.textContent = '0';
+      observer.unobserve(el);
+      return;
+    }
     const suffix = el.dataset.suffix || '';
     let current  = 0;
     const step   = Math.ceil(target / 60);
