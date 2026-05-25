@@ -201,7 +201,7 @@
 }
 
 /* WELCOME  */
-.welcome        { background: var(--off-white); overflow: hidden; }
+.welcome        { background: #f2f8ff; overflow: hidden; }
 .welcome-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
 
 /* Editorial collage images */
