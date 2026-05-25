@@ -1,6 +1,6 @@
 .hero {
-  height: 100vh;
-  min-height: 620px;
+  height: calc(100vh - var(--header-offset, 109px));
+  min-height: 0;
   position: relative;
   overflow: hidden;
 }
@@ -856,7 +856,7 @@
 }
 @media (max-width: 768px) {
   .world-time-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .hero           { height: 600px !important; min-height: 600px !important; }
+  .hero           { height: calc(100vh - var(--header-offset, 109px)) !important; min-height: 0 !important; }
   .hero-content   {
     justify-content: center;
     padding: 0 16px;

@@ -1,4 +1,6 @@
 /* STICKY HEADER WRAPPER */
+:root { --header-offset: 109px; }
+
 /* Wraps both topbar + navbar so they stay fixed at the very top on scroll */
 #header-placeholder,
 .site-header {
@@ -10,7 +12,7 @@
 }
 
 /* Push page content down so it isn't hidden behind the fixed header.*/
-body { padding-top: 109px; }
+body { padding-top: var(--header-offset); }
 
 /* TOP BAR */
 .topbar {
@@ -313,7 +315,7 @@ body { padding-top: 109px; }
   .mobile-menu { display: block; }
 }
 @media (max-width: 480px) {
+  :root    { --header-offset: 72px; }
   .topbar  { display: none; }
-  body     { padding-top: 72px; }
   .nav-inner { height: 64px; }
 }
