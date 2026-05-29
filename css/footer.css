@@ -109,11 +109,30 @@
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.6);
 }
+.footer-contact-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-contact-link:hover {
+  color: var(--gold-light);
+}
 .footer-contact-icon {
   color: var(--gold);
   font-size: 15px;
   margin-top: 2px;
   flex-shrink: 0;
+}
+
+/* Keep iOS/Android auto-detected contact links from turning blue */
+.footer a[x-apple-data-detectors],
+.footer [x-apple-data-detectors],
+.footer .footer-contact-item a[href^="tel"],
+.footer .footer-contact-item a[href^="mailto"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
 }
 
 /* FOOTER BOTTOM BAR */
