@@ -82,15 +82,15 @@ $_showBlog    = hasPublishedBlogPosts();
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone-alt footer-contact-icon"></i>
-            <a class="footer-contact-link" href="tel:<?= preg_replace('/[^0-9+]/', '', $_phone) ?>"><?= e($_phone) ?></a>
+            <span class="footer-contact-text"><?= e($_phone) ?></span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope footer-contact-icon"></i>
-            <a class="footer-contact-link" href="mailto:<?= e($_email) ?>"><?= e($_email) ?></a>
+            <span class="footer-contact-text"><?= e($_email) ?></span>
           </div>
           <div class="footer-contact-item">
             <i class="fab fa-whatsapp footer-contact-icon"></i>
-            <a class="footer-contact-link" href="https://wa.me/<?= e($_whatsapp) ?>" target="_blank">+<?= e($_whatsapp) ?></a>
+            <span class="footer-contact-text">+<?= e($_whatsapp) ?></span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-clock footer-contact-icon"></i>

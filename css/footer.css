@@ -109,8 +109,11 @@
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.6);
 }
-.footer-contact-link {
+.footer-contact-link,
+.footer-contact-text {
   color: rgba(255, 255, 255, 0.6);
+}
+.footer-contact-link {
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -128,8 +131,15 @@
 .footer a[x-apple-data-detectors],
 .footer [x-apple-data-detectors],
 .footer .footer-contact-item a[href^="tel"],
-.footer .footer-contact-item a[href^="mailto"] {
+.footer .footer-contact-item a[href^="mailto"],
+.footer .footer-contact-item a[href^="https://wa.me/"],
+.footer .footer-contact-item a,
+.footer .footer-contact-item a:link,
+.footer .footer-contact-item a:visited,
+.footer .footer-contact-item a:hover,
+.footer .footer-contact-item a:active {
   color: rgba(255, 255, 255, 0.6) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
   text-decoration: none !important;
   background: transparent !important;
   border-bottom: 0 !important;
