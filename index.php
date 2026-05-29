@@ -621,6 +621,7 @@ if (!$worldTimes) {
 </section>
 
 
+<?php if (!empty($testimonials)): ?>
 <!-- TESTIMONIALS -->
 <section class="testimonials section-pad">
   <div class="container">
@@ -664,6 +665,7 @@ if (!$worldTimes) {
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 
 <!-- GALLERY PREVIEW -->

@@ -83,6 +83,7 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
   </section>
 
 
+  <?php if (!empty($testimonials)): ?>
   <!-- TESTIMONIALS -->
   <section class="gallery-testimonials section-pad">
     <div class="container">
@@ -198,6 +199,7 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
 
     </div>
   </section>
+  <?php endif; ?>
 
 
   <!-- GALLERY -->
