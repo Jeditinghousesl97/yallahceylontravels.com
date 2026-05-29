@@ -36,6 +36,7 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
           aria-label="Change language"
           onchange="(function(l){var u=window.location.href;try{localStorage.setItem('site_lang',l);}catch(e){}window.location.href=(l==='en'?u:'https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(u));})(this.value)">
           <option value="en">🇬🇧 English</option>
+          <option value="ar">🇸🇦 Arabic</option>
           <option value="hi">🇮🇳 Hindi</option>
           <option value="ru">🇷🇺 Russian</option>
           <option value="zh-CN">🇨🇳 Chinese</option>
@@ -107,6 +108,7 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
         aria-label="Change language"
         onchange="(function(l){var u=window.location.href;try{localStorage.setItem('site_lang',l);}catch(e){}window.location.href=(l==='en'?u:'https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(u));})(this.value)">
         <option value="en">🇬🇧 English</option>
+        <option value="ar">🇸🇦 Arabic</option>
         <option value="hi">🇮🇳 Hindi</option>
         <option value="ru">🇷🇺 Russian</option>
         <option value="zh-CN">🇨🇳 Chinese</option>

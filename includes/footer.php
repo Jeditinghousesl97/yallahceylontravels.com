@@ -129,6 +129,7 @@ $_showBlog    = hasPublishedBlogPosts();
   </button>
   <div class="float-lang-menu" id="floatLangMenu" aria-hidden="true" style="display:none;">
     <button type="button" class="float-lang-item" data-float-lang="en">🇬🇧 English</button>
+    <button type="button" class="float-lang-item" data-float-lang="ar">🇸🇦 Arabic</button>
     <button type="button" class="float-lang-item" data-float-lang="hi">🇮🇳 Hindi</button>
     <button type="button" class="float-lang-item" data-float-lang="ru">🇷🇺 Russian</button>
     <button type="button" class="float-lang-item" data-float-lang="zh-CN">🇨🇳 Chinese</button>

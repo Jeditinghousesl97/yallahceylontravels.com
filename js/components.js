@@ -280,7 +280,7 @@ const footerHTML = `
     } catch (e) {
       savedLang = 'en';
     }
-    const allowedLangs = new Set(['en', 'hi', 'ru', 'zh-CN', 'de', 'fr', 'ja']);
+    const allowedLangs = new Set(['en', 'ar', 'hi', 'ru', 'zh-CN', 'de', 'fr', 'ja']);
     if (!allowedLangs.has(savedLang)) savedLang = 'en';
     switchers.forEach(sw => {
       sw.value = savedLang;
