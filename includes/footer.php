@@ -128,13 +128,13 @@ $_showBlog    = hasPublishedBlogPosts();
     <i class="fas fa-globe" style="font-size:18px;color:#fff;"></i>
   </button>
   <div class="float-lang-menu" id="floatLangMenu" aria-hidden="true" style="display:none;">
-    <button type="button" class="float-lang-item" data-float-lang="en">English</button>
-    <button type="button" class="float-lang-item" data-float-lang="hi">Hindi</button>
-    <button type="button" class="float-lang-item" data-float-lang="ru">Russian</button>
-    <button type="button" class="float-lang-item" data-float-lang="zh-CN">Chinese</button>
-    <button type="button" class="float-lang-item" data-float-lang="de">Deutsch</button>
-    <button type="button" class="float-lang-item" data-float-lang="fr">Francais</button>
-    <button type="button" class="float-lang-item" data-float-lang="ja">Japanese</button>
+    <button type="button" class="float-lang-item" data-float-lang="en">🇬🇧 English</button>
+    <button type="button" class="float-lang-item" data-float-lang="hi">🇮🇳 Hindi</button>
+    <button type="button" class="float-lang-item" data-float-lang="ru">🇷🇺 Russian</button>
+    <button type="button" class="float-lang-item" data-float-lang="zh-CN">🇨🇳 Chinese</button>
+    <button type="button" class="float-lang-item" data-float-lang="de">🇩🇪 Deutsch</button>
+    <button type="button" class="float-lang-item" data-float-lang="fr">🇫🇷 Francais</button>
+    <button type="button" class="float-lang-item" data-float-lang="ja">🇯🇵 Japanese</button>
   </div>
 </div>
 

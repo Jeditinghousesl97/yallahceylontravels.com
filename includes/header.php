@@ -35,13 +35,13 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
           data-lang-switcher
           aria-label="Change language"
           onchange="(function(l){var u=window.location.href;try{localStorage.setItem('site_lang',l);}catch(e){}window.location.href=(l==='en'?u:'https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(u));})(this.value)">
-          <option value="en">English</option>
-          <option value="hi">Hindi</option>
-          <option value="ru">Russian</option>
-          <option value="zh-CN">Chinese</option>
-          <option value="de">Deutsch</option>
-          <option value="fr">Francais</option>
-          <option value="ja">Japanese</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="hi">🇮🇳 Hindi</option>
+          <option value="ru">🇷🇺 Russian</option>
+          <option value="zh-CN">🇨🇳 Chinese</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="fr">🇫🇷 Francais</option>
+          <option value="ja">🇯🇵 Japanese</option>
         </select>
       </div>
       <?php if ($_fbUrl): ?><a href="<?= e($_fbUrl) ?>" title="Facebook"    target="_blank"><i class="fab fa-facebook-f"></i></a><?php endif; ?>
@@ -106,13 +106,13 @@ function navCls($p) { global $_cp; return $p === $_cp ? ' active' : ''; }
         data-lang-switcher
         aria-label="Change language"
         onchange="(function(l){var u=window.location.href;try{localStorage.setItem('site_lang',l);}catch(e){}window.location.href=(l==='en'?u:'https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(u));})(this.value)">
-        <option value="en">English</option>
-        <option value="hi">Hindi</option>
-        <option value="ru">Russian</option>
-        <option value="zh-CN">Chinese</option>
-        <option value="de">Deutsch</option>
-        <option value="fr">Francais</option>
-        <option value="ja">Japanese</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="hi">🇮🇳 Hindi</option>
+        <option value="ru">🇷🇺 Russian</option>
+        <option value="zh-CN">🇨🇳 Chinese</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="fr">🇫🇷 Francais</option>
+        <option value="ja">🇯🇵 Japanese</option>
       </select>
     </li>
     <li><a href="contact.php#contact-form" class="book-mobile">Book Now</a></li>
