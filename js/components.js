@@ -273,15 +273,31 @@ const footerHTML = `
   (function initLanguageSwitcher() {
     const switchers = Array.from(document.querySelectorAll('[data-lang-switcher]'));
     if (!switchers.length) return;
+    const allowedLangs = new Set(['en', 'ar', 'hi', 'ru', 'zh-CN', 'de', 'fr', 'ja']);
+    const languageAliases = { 'zh-cn': 'zh-CN' };
+    const languageFlags = {
+      en: '🇬🇧',
+      ar: '🇸🇦',
+      hi: '🇮🇳',
+      ru: '🇷🇺',
+      'zh-CN': '🇨🇳',
+      de: '🇩🇪',
+      fr: '🇫🇷',
+      ja: '🇯🇵'
+    };
+
+    function normalizeLang(lang) {
+      const value = String(lang || 'en').trim();
+      const canonical = languageAliases[value] || value;
+      return allowedLangs.has(canonical) ? canonical : 'en';
+    }
 
     let savedLang = 'en';
     try {
-      savedLang = localStorage.getItem('site_lang') || 'en';
+      savedLang = normalizeLang(localStorage.getItem('site_lang') || 'en');
     } catch (e) {
       savedLang = 'en';
     }
-    const allowedLangs = new Set(['en', 'ar', 'hi', 'ru', 'zh-CN', 'de', 'fr', 'ja']);
-    if (!allowedLangs.has(savedLang)) savedLang = 'en';
     switchers.forEach(sw => {
       sw.value = savedLang;
     });
@@ -301,7 +317,7 @@ const footerHTML = `
     }
 
     function onLangChange(event) {
-      const lang = (event.target.value || 'en').trim().toLowerCase();
+      const lang = normalizeLang(event.target.value || 'en');
       try {
         localStorage.setItem('site_lang', lang);
       } catch (e) {
@@ -324,13 +340,20 @@ const footerHTML = `
     // Floating language switcher
     const floatLang = document.getElementById('floatLang');
     const floatLangBtn = document.getElementById('floatLangBtn');
+    const floatLangActiveFlag = document.getElementById('floatLangActiveFlag');
     const floatLangItems = Array.from(document.querySelectorAll('[data-float-lang]'));
     if (!floatLang || !floatLangBtn || !floatLangItems.length) return;
+
+    function setActiveFloatFlag(lang) {
+      if (!floatLangActiveFlag) return;
+      floatLangActiveFlag.textContent = languageFlags[lang] || languageFlags.en;
+    }
 
     function markActiveFloatLang(lang) {
       floatLangItems.forEach(item => {
         item.classList.toggle('active', item.getAttribute('data-float-lang') === lang);
       });
+      setActiveFloatFlag(lang);
     }
 
     const floatLangMenu = document.getElementById('floatLangMenu');
