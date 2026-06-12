@@ -191,7 +191,14 @@
   border-color: rgba(226, 201, 126, 0.8);
   box-shadow: 0 12px 34px rgba(10, 61, 61, 0.45);
 }
-.float-lang-btn i { font-size: 18px; }
+.float-lang-btn img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
 .float-lang-menu {
   position: absolute;
   right: 0;
@@ -247,7 +254,8 @@
     height: 46px;
     font-size: 16px;
   }
-  .float-lang-btn i {
-    font-size: 16px;
+  .float-lang-btn img {
+    width: 24px;
+    height: 24px;
   }
 }

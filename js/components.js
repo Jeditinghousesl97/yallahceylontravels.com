@@ -286,6 +286,17 @@ const footerHTML = `
       ja: '🇯🇵'
     };
 
+    const languageFlagImages = {
+      en: { src: 'images/language/English.jpg', alt: 'English' },
+      ar: { src: 'images/language/arabic.jpg', alt: 'Arabic' },
+      hi: { src: 'images/language/Hindi.jpg', alt: 'Hindi' },
+      ru: { src: 'images/language/Russian.jpg', alt: 'Russian' },
+      'zh-CN': { src: 'images/language/Chinese.jpg', alt: 'Chinese' },
+      de: { src: 'images/language/Deutsch.jpg', alt: 'Deutsch' },
+      fr: { src: 'images/language/France.jpg', alt: 'Francais' },
+      ja: { src: 'images/language/Japan.jpg', alt: 'Japanese' }
+    };
+
     function normalizeLang(lang) {
       const value = String(lang || 'en').trim();
       const canonical = languageAliases[value] || value;
@@ -346,7 +357,9 @@ const footerHTML = `
 
     function setActiveFloatFlag(lang) {
       if (!floatLangActiveFlag) return;
-      floatLangActiveFlag.textContent = languageFlags[lang] || languageFlags.en;
+      const flagImage = languageFlagImages[lang] || languageFlagImages.en;
+      floatLangActiveFlag.setAttribute('src', flagImage.src);
+      floatLangActiveFlag.setAttribute('alt', flagImage.alt);
     }
 
     function markActiveFloatLang(lang) {
