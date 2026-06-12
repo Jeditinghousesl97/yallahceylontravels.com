@@ -192,8 +192,8 @@
   box-shadow: 0 12px 34px rgba(10, 61, 61, 0.45);
 }
 .float-lang-btn img {
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -255,7 +255,7 @@
     font-size: 16px;
   }
   .float-lang-btn img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
 }

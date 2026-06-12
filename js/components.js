@@ -303,11 +303,29 @@ const footerHTML = `
       return allowedLangs.has(canonical) ? canonical : 'en';
     }
 
+    function basePageUrl() {
+      const url = new URL(window.location.href);
+      Array.from(url.searchParams.keys()).forEach(key => {
+        if (key.indexOf('_x_tr_') === 0) {
+          url.searchParams.delete(key);
+        }
+      });
+      return url.toString();
+    }
+
+    function currentTranslatedLang() {
+      const url = new URL(window.location.href);
+      const queryLang = url.searchParams.get('_x_tr_tl') || url.searchParams.get('tl');
+      return queryLang ? normalizeLang(queryLang) : '';
+    }
+
     let savedLang = 'en';
+    const urlLang = currentTranslatedLang();
     try {
-      savedLang = normalizeLang(localStorage.getItem('site_lang') || 'en');
+      savedLang = normalizeLang(urlLang || localStorage.getItem('site_lang') || 'en');
+      localStorage.setItem('site_lang', savedLang);
     } catch (e) {
-      savedLang = 'en';
+      savedLang = normalizeLang(urlLang || 'en');
     }
     switchers.forEach(sw => {
       sw.value = savedLang;
@@ -317,10 +335,6 @@ const footerHTML = `
       switchers.forEach(sw => {
         sw.value = lang;
       });
-    }
-
-    function currentPageUrl() {
-      return window.location.href;
     }
 
     function translatedUrl(targetLang, sourceUrl) {
@@ -337,11 +351,11 @@ const footerHTML = `
       sync(lang);
 
       if (lang === 'en') {
-        window.location.href = currentPageUrl();
+        window.location.href = basePageUrl();
         return;
       }
 
-      window.location.href = translatedUrl(lang, currentPageUrl());
+      window.location.href = translatedUrl(lang, basePageUrl());
     }
 
     switchers.forEach(sw => {

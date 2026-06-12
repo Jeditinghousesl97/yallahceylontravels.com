@@ -125,7 +125,7 @@ $_showBlog    = hasPublishedBlogPosts();
 
 <div class="float-lang" id="floatLang" style="position:fixed;right:24px;bottom:102px;z-index:2500;">
   <button class="float-lang-btn" id="floatLangBtn" title="Change language" aria-label="Change language" style="width:50px;height:50px;border-radius:50%;border:1px solid rgba(201,168,76,.55);background:linear-gradient(145deg,rgba(10,61,61,.94),rgba(15,82,82,.94));box-shadow:0 10px 28px rgba(10,61,61,.36);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;">
-    <img id="floatLangActiveFlag" src="images/language/English.jpg" alt="English" style="width:26px;height:26px;border-radius:50%;object-fit:cover;display:block;">
+    <img id="floatLangActiveFlag" src="images/language/English.jpg" alt="English" style="border-radius:50%;object-fit:cover;display:block;">
   </button>
   <div class="float-lang-menu" id="floatLangMenu" aria-hidden="true" style="display:none;">
     <button type="button" class="float-lang-item" data-float-lang="en">🇬🇧 English</button>
