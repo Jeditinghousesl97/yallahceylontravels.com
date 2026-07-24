@@ -61,7 +61,7 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
   <link rel="stylesheet" href="css/global.css"/>
   <link rel="stylesheet" href="css/header.css"/>
   <link rel="stylesheet" href="css/footer.css"/>
-  <link rel="stylesheet" href="css/gallery.css"/>
+  <link rel="stylesheet" href="css/gallery.css?v=<?= filemtime(__DIR__ . '/css/gallery.css') ?>"/>
   <?= renderSiteThemeStyle() ?>
 </head>
 <body data-page="gallery">
@@ -211,14 +211,6 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
         <p class="section-subtitle reveal">A glimpse into the incredible moments, places and people that make every Yallah Ceylon Travels journey truly special.</p>
       </div>
 
-      <!-- Filter pills -->
-      <div class="gallery-filter-bar reveal">
-        <button class="gallery-pill active" data-filter="all">All Photos</button>
-        <?php foreach ($badgeLabel as $key => $label): ?>
-          <button class="gallery-pill" data-filter="<?= e($key) ?>"><?= e($label) ?></button>
-        <?php endforeach; ?>
-      </div>
-
       <!-- Masonry Grid -->
       <div class="gallery-masonry" id="galleryGrid">
 
@@ -234,36 +226,35 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
           <div class="gallery-item" data-cat="<?= e($cat) ?>">
             <img src="<?= e($src) ?>" alt="<?= $alt ?>" loading="lazy"/>
             <div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div>
-            <span class="gallery-item-badge gbadge-<?= e($cat) ?>"><?= e($label) ?></span>
           </div>
           <?php endforeach; ?>
 
         <?php else: ?>
           <!-- Static fallback -->
-          <div class="gallery-item" data-cat="guests"><img src="images/gallery-1.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="guests"><img src="images/gallery-2.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="wildlife"><img src="images/gallery-3.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-wildlife">Wildlife</span></div>
-          <div class="gallery-item" data-cat="nature"><img src="images/gallery-4.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-nature">Nature</span></div>
-          <div class="gallery-item" data-cat="guests"><img src="images/gallery-5.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="wildlife"><img src="images/gallery-6.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-wildlife">Wildlife</span></div>
-          <div class="gallery-item" data-cat="guests"><img src="images/dest-ahangama.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="culture"><img src="images/dest-arugam.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-culture">Culture</span></div>
-          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-dambulla.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-wildlife">Wildlife</span></div>
-          <div class="gallery-item" data-cat="nature"><img src="images/dest-hatton.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-nature">Nature</span></div>
-          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-ella.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-wildlife">Wildlife</span></div>
-          <div class="gallery-item" data-cat="beach"><img src="images/dest-horton.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-beach">Beach</span></div>
-          <div class="gallery-item" data-cat="nature"><img src="images/dest-jaffna.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-nature">Nature</span></div>
-          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-minneriya.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-wildlife">Wildlife</span></div>
-          <div class="gallery-item" data-cat="beach"><img src="images/dest-mirissa.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-beach">Beach</span></div>
-          <div class="gallery-item" data-cat="culture"><img src="images/dest-sigiriya.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-culture">Culture</span></div>
-          <div class="gallery-item" data-cat="guests"><img src="images/dest-unawatuna.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="nature"><img src="images/dest-waterfalls.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-nature">Nature</span></div>
-          <div class="gallery-item" data-cat="beach"><img src="images/about-2.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-beach">Beach</span></div>
-          <div class="gallery-item" data-cat="guests"><img src="images/about-circle.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-guests">Guests</span></div>
-          <div class="gallery-item" data-cat="culture"><img src="images/about-hero.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-culture">Culture</span></div>
-          <div class="gallery-item" data-cat="nature"><img src="images/about-main.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-nature">Nature</span></div>
-          <div class="gallery-item" data-cat="beach"><img src="images/about-story-1.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-beach">Beach</span></div>
-          <div class="gallery-item" data-cat="culture"><img src="images/about-story-2.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div><span class="gallery-item-badge gbadge-culture">Culture</span></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/gallery-1.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/gallery-2.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="wildlife"><img src="images/gallery-3.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="nature"><img src="images/gallery-4.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/gallery-5.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="wildlife"><img src="images/gallery-6.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/dest-ahangama.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="culture"><img src="images/dest-arugam.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-dambulla.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="nature"><img src="images/dest-hatton.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-ella.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="beach"><img src="images/dest-horton.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="nature"><img src="images/dest-jaffna.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="wildlife"><img src="images/dest-minneriya.jpg" alt="Wildlife" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="beach"><img src="images/dest-mirissa.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="culture"><img src="images/dest-sigiriya.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/dest-unawatuna.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="nature"><img src="images/dest-waterfalls.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="beach"><img src="images/about-2.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="guests"><img src="images/about-circle.jpg" alt="Happy Guests" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="culture"><img src="images/about-hero.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="nature"><img src="images/about-main.jpg" alt="Sri Lanka Scenery" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="beach"><img src="images/about-story-1.jpg" alt="Beach" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
+          <div class="gallery-item" data-cat="culture"><img src="images/about-story-2.jpg" alt="Cultural Heritage" loading="lazy"/><div class="gallery-overlay"><i class="fas fa-expand"></i><span>View</span></div></div>
         <?php endif; ?>
 
       </div>
@@ -310,23 +301,6 @@ $_whatsapp = setting('site_whatsapp', '94775775211');
 <script src="js/components.js?v=<?= filemtime(__DIR__ . '/js/components.js') ?>"></script>
 <script src="js/animations.js"></script>
 <script src="js/gallery.js"></script>
-<script>
-/* Auto-colour badges for custom (non-predefined) categories */
-(function(){
-  const known = ['guests','nature','wildlife','culture','beach','misc'];
-  function hashColor(str) {
-    let h = 0;
-    for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
-    const hue = h % 360;
-    return `hsla(${hue},55%,38%,0.88)`;
-  }
-  document.querySelectorAll('.gallery-item-badge').forEach(el => {
-    const cat = el.closest('[data-cat]')?.dataset.cat || '';
-    if (cat && !known.includes(cat)) el.style.background = hashColor(cat);
-  });
-})();
-</script>
-
 <script>
 /* ── TESTIMONIAL SLIDER ── */
 (function () {
