@@ -321,7 +321,7 @@ unset($_SESSION['upload_errors']);
           <form method="POST" enctype="multipart/form-data" id="uploadForm">
             <input type="hidden" name="upload" value="1"/>
             <div class="upload-grid">
-              <div class="fgrp">
+              <div class="fgrp" hidden>
                 <label>Category</label>
                 <input type="text" name="category" class="form-control" list="galleryCategoryList" value="<?= htmlspecialchars($filterCat) ?>" placeholder="Optional category"/>
                 <datalist id="galleryCategoryList">
@@ -330,7 +330,7 @@ unset($_SESSION['upload_errors']);
                   <?php endforeach; ?>
                 </datalist>
               </div>
-              <div class="fgrp">
+              <div class="fgrp" hidden>
                 <label>Caption</label>
                 <input type="text" name="caption" class="form-control" placeholder="Optional caption"/>
               </div>
@@ -358,7 +358,7 @@ unset($_SESSION['upload_errors']);
               </button>
               <div class="file-pill" id="filePill"><i class="fas fa-check-circle"></i> <span id="filePillText">No files selected</span></div>
             </div>
-            <div class="upload-note">The caption, alt text, category and sort order will be applied to every selected file in this upload.</div>
+            <div class="upload-note">The alt text and sort order will be applied to every selected file in this upload.</div>
           </form>
         </div>
       </div>
