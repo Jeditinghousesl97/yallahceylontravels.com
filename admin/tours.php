@@ -562,7 +562,7 @@ textarea.form-control{resize:vertical;min-height:80px}
                        placeholder="e.g. 14 Days"
                        value="<?= htmlspecialchars($v['duration'] ?? '') ?>"/>
               </div>
-              <div class="fgrp">
+              <div class="fgrp" hidden>
                 <label>Tour Type</label>
                 <input type="text" name="tour_type" class="form-control"
                        placeholder="e.g. Adventure"
